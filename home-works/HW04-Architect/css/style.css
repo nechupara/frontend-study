@@ -18,6 +18,8 @@ body {
     height: 70px;
     background-color: #313131;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .wrapper-logo-header {
@@ -25,6 +27,8 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .logo-header {
@@ -50,7 +54,6 @@ body {
 
 .nav-header {
     display: flex;
-    height: 70px;
     justify-content: center;
     align-items: center;
     gap: 35px;
