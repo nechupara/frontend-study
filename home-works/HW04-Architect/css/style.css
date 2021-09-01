@@ -112,9 +112,54 @@ body {
 }
 
 .bg-green {
-    background: #89CA62;
+   background: #89ca62;
 }
 
 .bg-skyblue {
-    background: #14B9D5;
+   background: #14b9d5;
+}
+
+/* MAIN SECTIONS SECTION */
+/*  */
+/* POPULAR POSTS SECTION */
+.popular-posts-section {
+   background: #f2f2f2;
+   padding-top: 54px;
+   height: 1030px; /*удалить*/
+   padding-bottom: 72px; /*удалить*/
+}
+.popular-posts-section-title {
+   font-weight: 700;
+   font-size: 27px;
+   line-height: 20px;
+   text-align: center;
+   text-transform: uppercase;
+   color: #18b4cf;
+   margin: 0 auto;
+   margin-bottom: 60px;
+}
+
+.popular-post-list {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column; 
+   gap: 30px;
+   justify-content: flex-start;
+   align-items: flex-start;
+   align-content: flex-start;
+   /* height: 1030px; удалить */
+   overflow: hidden; /*удалить*/
+   margin: auto; /*удалить*/
+}
+
+.popular-post-item img {
+    display: block;
+}
+.popular-post-link {
+   background: #fff;
+   font-weight: 700;
+   font-size: 18px;
+   text-align: center;
+   color: #353a3d;
+   display: block;
 }
