@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
-
+html {
+   background: #E5E5E5;
+}
 body {
    font-family: "Open Sans", sans-serif;
 }
@@ -141,7 +143,7 @@ body {
 .popular-post-list {
    display: flex;
    flex-wrap: wrap;
-   flex-direction: column; 
+   flex-direction: column;
    gap: 30px;
    justify-content: flex-start;
    align-items: flex-start;
@@ -150,7 +152,7 @@ body {
 }
 
 .popular-post-item img {
-    display: block;
+   display: block;
 }
 .popular-post-link {
    background: #fff;
@@ -188,7 +190,7 @@ body {
 .pop-clients-header::after {
    content: "";
    display: block;
-   background-color: #18B4CF;
+   background-color: #18b4cf;
    width: 60px;
    height: 3px;
    margin-top: 97px;
@@ -202,3 +204,37 @@ body {
    align-items: center;
    margin-top: 106px;
 }
+
+
+/* TOT RATED SECTION */
+.top-rated {
+   background: #fff;
+   padding-top: 57px;
+}
+
+.top-rated-header {
+   text-align: center;
+   text-transform: uppercase;
+   color: #18b4cf;
+   font-size: 27px;
+   line-height: 20px;
+   font-weight: 700;
+}
+
+.top-rated-pic-wrapper {
+   display: grid;
+   grid-auto-flow: column;
+   margin-top: 60px;
+}
+
+.top-rated-pic-wrapper img {
+   display: block;
+   object-fit: cover;
+}
+
+.top-rated-picture:nth-child(3n+1) {
+   width: 272px;
+   height: 190px;
+   object-fit: cover;
+}
+
