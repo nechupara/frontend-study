@@ -234,7 +234,6 @@ body {
    margin: 59px auto 0;
    display: grid;
    grid-template-columns: 277px 1fr 1fr 277px;
-   /* justify-content: space-between; */
    gap: 44px 0;
 }
 
@@ -251,11 +250,6 @@ body {
 }
 
 .grid-span-1 > .news-description-wrapper {
-   /* padding-top: 11px; */
-   /* text-align: center; */
-   /* display: flex;
-justify-content: center;
-align-items: center; */
    text-align: center;
 }
 
@@ -305,7 +299,6 @@ align-items: center; */
    font-weight: 700;
    font-size: 18px;
    color: #353a3d;
-   /* margin-bottom: 13px; */
 }
 
 /* FOOTER SECTION */
