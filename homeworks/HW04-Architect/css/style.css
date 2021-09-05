@@ -235,39 +235,48 @@ body {
    display: grid;
    grid-template-columns: 277px 1fr 1fr 277px;
    /* justify-content: space-between; */
-   gap: 44px;
+   gap: 44px 0;
 }
 
 .hot-news-list-item img {
    display: block;
 }
 
-.span-1 {
+.grid-span-1 {
    grid-column: span 1;
+   display: grid;
+   grid-template-rows: 210px 1fr;
+   align-content: flex-start;
+   align-items: center;
 }
 
-.span-1 > .news-description-wrapper {
-padding-top: 11px;
-text-align: center;
+.grid-span-1 > .news-description-wrapper {
+   /* padding-top: 11px; */
+   /* text-align: center; */
+   /* display: flex;
+justify-content: center;
+align-items: center; */
+   text-align: center;
 }
 
-.span-2 {
+.grid-span-2 {
    grid-column: span 2;
    width: 554px;
 }
 
-.span-2 > .news-description-wrapper {
-   padding: 16px 13px 6px
+.grid-span-2 > .news-description-wrapper {
+   padding: 16px 13px 6px;
 }
 
-.span-3 {
+.grid-span-3 {
    grid-column: span 3;
    width: 857px;
-   display: flex;
+   display: grid;
+   grid-auto-flow: column;
    align-items: center;
 }
 
-.span-3 > .news-description-wrapper {
+.grid-span-3 > .news-description-wrapper {
    padding-right: 24px;
    padding-left: 18px;
 }
@@ -286,10 +295,10 @@ text-align: center;
 
 .news-description-wrapper > p {
    font-weight: 600;
-font-size: 14px;
-line-height: 21px;
-color: #5B6469;
-margin-top: 13px;
+   font-size: 14px;
+   line-height: 21px;
+   color: #5b6469;
+   margin-top: 13px;
 }
 
 .news-item-title {
@@ -299,3 +308,32 @@ margin-top: 13px;
    /* margin-bottom: 13px; */
 }
 
+/* FOOTER SECTION */
+.footer-section {
+   padding-left: 366px;
+   padding-right: 366px;
+   height: 80px;
+   background: #000;
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   align-content: center;
+}
+
+.footer-copyright-text {
+   font-size: 13px;
+   line-height: 13px;
+   color: #ffffff;
+   align-self: center;
+   justify-self: flex-start;
+}
+
+.footer-logo-wrapper {
+   align-self: center;
+   justify-self: flex-end;
+}
+
+.footer-logo-wrapper img {
+   display: inline-block;
+   vertical-align: top;
+   
+}
