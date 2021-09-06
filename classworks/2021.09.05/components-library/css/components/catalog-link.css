@@ -1,0 +1,26 @@
+.catalog-link {
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  color: #371030;
+  text-decoration: none;
+  padding-bottom: 7px;
+  border-bottom: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+}
+.catalog-link::after {
+    content: "\2192";
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 21px;
+    position: absolute;
+    right: -30px;
+}
+.catalog-link:hover{
+    color: #FC9FAA;
+    border-bottom: 1px solid #FC9FAA;
+}
