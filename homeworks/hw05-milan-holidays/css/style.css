@@ -151,11 +151,49 @@ body {
   height: 55px;
   width: 100%;
   padding: 7px 16px 12px;
-  background: #F26522;
+  background: #f26522;
   position: absolute;
-  bottom: 0px;
+  bottom: -55px;
   color: #fff;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+  "a ."
+  "b c";
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.price-first-line {
+  font-size: 10px;
+  line-height: 14px;
+  grid-area: a;
+}
+.price-second-line {
+  font-size: 20px;
+  line-height: 14px;
+  grid-area: b;
+}
+
+.price-details-text {
+  font-size: 14px;
+  line-height: 14px;
+  grid-area: c;
+}
+
+.price-details-text::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  background-image: url(../img/arrow-view-details.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: 1px;
+  margin-left: 16px;
+  /* background-color: white; */
 }
 
 .tour-type-link:hover .tour-img-hover {
@@ -169,8 +207,7 @@ body {
 }
 
 .tour-type-link:hover .tour-type-title {
-  color: #F26522;
-  ;
+  color: #f26522;
 }
 
 /* FOOTER SECTION*/
