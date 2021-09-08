@@ -141,7 +141,7 @@ body {
 .tour-img {
    width: 304px;
    height: 224px;
-   object-fit: none;
+   object-fit: cover;
    display: block;
    border: 2px solid;
    border-image: linear-gradient(#fff, #000) 2;
