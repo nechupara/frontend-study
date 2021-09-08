@@ -140,11 +140,13 @@ body {
 }
 
 .tour-img {
-  width: 300px;
-  height: 220px;
+  width: 306px;
+  height: 226px;
   object-position: center top;
   object-fit: none;
   display: block;
+  border: 3px solid;
+   border-image: linear-gradient(#fff,  #000) 3;
 }
 
 .tour-img-hover {
@@ -163,6 +165,7 @@ body {
   "b c";
   justify-content: space-between;
   align-content: space-between;
+  transition: 500ms;
 }
 
 .price-first-line {
