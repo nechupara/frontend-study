@@ -1,0 +1,72 @@
+.main-container {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/main-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.header {
+  height: 58px;
+  width: 100%;
+  min-width: 770px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0 79px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-header {
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: auto;
+    color: #fff;
+}
+.menu-header {
+  position: relative;
+}
+.menu-header::after {
+  content: "";
+  display: block;
+  height: 19px;
+  width: 1px;
+  background-color: #828282;
+  position: absolute;
+  right: 0;
+  top: 3px;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 25px;
+  margin-right: 26px;
+}
+
+.menu-item-link {
+  display: block;
+  width: 23px;
+  fill: #fff;
+}
+
+.menu-item:first-child .menu-item-link {
+  width: 21px;
+} 
+
+.header-login-wrapper {
+  padding-left: 27px;
+}
+
+.header-login-link {
+  color: #fff;
+}
+
+.hovered-link:hover {
+  color: #236D47;
+  fill: #236D47;
+}
