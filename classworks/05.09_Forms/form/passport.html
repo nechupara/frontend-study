@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h2 class="form-title">Паспортные данные</h2>
+      <form action="" class="form-box form-box-small">
+        <div class="form-fields-wrapper">
+          <label class="form-label"
+            >Гражданство
+            <input
+              class="form-input"
+              type="text"
+              name="client-tel-number"
+              placeholder="Россия"
+            />
+          </label>
+          <fieldset class="form-label form-label-grouped">
+            <legend>Документ, удоставеряющий личность</legend>
+            <input
+              class="form-input"
+              type="text"
+              name="client-document-type"
+              placeholder="Тип документа"
+            />
+            <input
+              class="form-input"
+              type="text"
+              name="client-card-series"
+              placeholder="Серия"
+            />
+            <input
+              class="form-input"
+              type="text"
+              name="client-card-number"
+              placeholder="Номер"
+            />
+          </fieldset>
+
+          <label class="form-label"
+            >Орган, выдавший документ
+            <input
+              class="form-input"
+              type="text"
+              name="client-passport-ruvd"
+              placeholder="Кем выдан"
+            />
+          </label>
+          <label class="form-label"
+            >Дата выдачи
+            <input
+              class="form-input"
+              type="date"
+              name="client-email"
+              placeholder="дд.мм.гггг"
+            />
+          </label>
+        </div>
+        <div class="form-btn-wrapper">
+          <a class="form-btn" href="#">Назад</a>
+          <button class="form-btn" type="submit">Далее</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+.section-title {
+    /* цвет */
+    color: #333333;
+    /* название шрифта  */
+    font-family: Montserrat;
+    /* Стиль текста */
+    font-style:italic ;
+    /* Жирность шрифта  */
+    font-weight:700;
+    /* Размер шрифта */
+    font-size: 22px;
+    /* Высота строки  */
+    line-height: 1;
+    /* Преобразовать текст в регистыр  */
+    text-transform: uppercase; 
+}
+
+.decorated-text {
+    text-decoration: underline;
+}
+
+p.decorated-text {
+    display: inline;
+}
+
+.regular-section .section-title {
+    
+}
+.buy-btn {
+    font-family: Lato;
+font-weight: bold;
+font-size: 14px;
+line-height: 14px;
+background-color: #F1AD1D;
+color: #FFFFFF;
+border: none;
+padding: 19px 27px;
+margin-top: 36px;
+/* width: 176px;
+height: 52px; */
+
+}
+#first-section {
+background-color: red;
+
+}
+.header-section {
+    background-color: green !important;
+
+}
+
+
+

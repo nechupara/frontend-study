@@ -17,7 +17,6 @@
 .header {
    height: 58px;
    width: 100%;
-   /* min-width: 770px; */
    background: rgba(0, 0, 0, 0.4);
    padding: 0 79px;
    display: flex;
@@ -74,6 +73,10 @@
    color: #fff;
 }
 
+.hovered-link {
+   transition: color 0.5s, fill 0.5s;
+}
+
 .hovered-link:hover {
    color: #236d47;
    fill: #236d47;
@@ -82,13 +85,17 @@
 /* MODAL WINDOW */
 
 .modal-window-wrapper {
+   width: 444px;
+   height: 584px;
    min-width: 444px;
    min-height: 584px;
    background-color: #fff;
-   /* margin: calc(100vh - 58px - 584px) auto; */
    margin: auto auto;
-   padding: 29px 61px 38px;
+   padding: 29px 60px 38px;
    position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
 }
 
 .modal-window-title {
@@ -121,13 +128,11 @@
 }
 
 .btn {
-   /* width: 157px; */
    width: 100%;
    height: 46px;
    font-size: 16px;
    line-height: 16px;
    border: none;
-   border-radius: 3px;
    padding: 0;
    display: flex;
    justify-content: center;
@@ -140,18 +145,29 @@
 .fb-btn {
    background-color: #305db8;
    width: 157px;
+   border-radius: 3px;
 }
 
 .google-btn {
    background-color: #df4a32;
    width: 157px;
+   border-radius: 3px;
 }
 
 .socials-btns {
   margin-top: 14px;
    display: flex;
    justify-content: space-between;
+}
 
+.submit-btn {
+   border-radius: 4px;
+   background-color: #63C693;
+   transition: background-color 0.5s;
+}
+
+.submit-btn:hover {
+   background-color: #01803F;
 }
 
 .fb-logo {
@@ -159,7 +175,7 @@
 }
 
 .ggl-logo {
-  height: 19px;
+  width: 30px;
 }
 
 .btn-socials-content {
@@ -202,6 +218,7 @@
   justify-content: center;
   height: 14px;
   margin-top: 32px;
+  margin-bottom: auto;
 }
 
 .modal-window-delimiter span {
@@ -221,7 +238,78 @@ line-height: 14px;
   height: 1px;
   background-color:  #F2F2F2;;
   position: absolute;
-  top: 8px;
+  top: 9px;
 }
 
+.form-box {
+   display: flex;
+   flex-direction: column;
+}
 
+.input-item {
+   height: 44px;
+   border-radius: 4px;
+   border: 1px solid #F2F2F2;
+   padding-left: 20px;
+   padding-right: 20px;
+   color: #434343;
+}
+
+.input-item:focus,
+.input-item:focus-visible {
+   outline: none;
+   border: 1px solid rgba(255, 255, 255, 0);
+   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.21);
+}
+
+.input-item::placeholder {
+   color: #BEBEBE;
+}
+
+.input-item:not(:nth-of-type(5)) {
+   margin-bottom: 15px;
+}
+
+.conditions-link {
+   color: #3CB878;
+}
+
+.modal-link-hovered {
+   transition: color 0.5s;
+}
+
+.modal-link-hovered:hover {
+   text-decoration: underline;
+   color: #01803F;
+   text-decoration-color: #01803F;
+}
+
+.checkbox-item {
+   display: flex;
+   position: relative;
+   align-items: center;
+   color: #434343;
+   margin-top: 12px;
+   margin-bottom: 20px;
+}
+
+.custom-checkbox {
+   display: inline-block;
+   height: 20px;
+   width: 20px;
+   border: 1px solid #F2F2F2;
+   background: #fff;
+   margin-right: 8px;
+}
+
+.checkbox-item .default-checkbox {
+   position: absolute;
+   opacity: 0;
+}
+
+.checkbox-item .default-checkbox:checked + .custom-checkbox {
+   background-image: url("../img/checkbox-checked.svg");
+   background-size: 14px 14px;
+   background-position: center;
+   background-repeat: no-repeat;
+}

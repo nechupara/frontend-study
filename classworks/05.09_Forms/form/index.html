@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h2 class="form-title">Информация</h2>
+      <form action="" class="form-box form-box-small"> 
+          <div class="form-fields-wrapper">
+        <fieldset class="form-label form-label-grouped"> 
+            <legend>Карта клиента</legend>
+          <input class="form-input" type="text" name="client-card-series" placeholder="Серия" />
+          <input class="form-input" type="text" name="client-card-number" placeholder="Номер"/>
+        </fieldset>
+        <label class="form-label form-checkbox">
+          <input type="checkbox" name="push-notify-agree" class="default-checkbox" checked />
+          <span class="custom-checkbox"></span>
+          <span>Даю согласие на получение уведомлений от Страховщика посредством
+            SMS и(или) E-mail</span>
+        </label>
+        <label class="form-label">Телефон
+            <input class="form-input" type="tel" name="client-tel-number" placeholder="+7(___)___-__-__">
+        </label>
+        <label class="form-label">E-mail
+            <input class="form-input" type="email" name="client-email" placeholder="mail@example.ru">
+        </label>
+    </div>
+        <div class="form-btn-wrapper">
+            <a class="form-btn" href="#">Назад</a>
+            <button class="form-btn" type="submit">Далее</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

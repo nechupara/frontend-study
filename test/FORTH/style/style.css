@@ -1,0 +1,247 @@
+.navbar {
+    /*height: 70px;*/
+    background-color: #313131;
+    padding-top     : 16px;
+    padding-bottom  : 24px;
+}
+
+.container {
+    max-width: 1170px;
+    margin   : 0 auto;
+}
+
+.navbar_list {
+    display        : flex;
+    font-size      : 25px;
+    justify-content: space-evenly;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.navbar_item {
+    color      : rgba(255, 255, 255, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.navbar_list :hover {
+    color: rgba(24, 180, 207, 1);
+}
+
+.main_header {
+    background-image      : url(../img/header-background.png);
+    background            : cover no-repeat;
+}
+
+.post_section {
+    background-color: #F2F2F2;
+}
+
+.title {
+    padding-top   : 106px;
+    color         : rgba(255, 255, 255, 1);
+    font-family   : Verdana, Geneva, Tahoma, sans-serif;
+    font-size     : 27px;
+    padding-bottom: 44px;
+
+}
+
+.btn_wrapper {
+    text-align    : center;
+    padding-bottom: 74px;
+}
+
+.btn {
+    border-radius: 5%;
+    font-size    : 18px;
+    border       : none;
+    color        : #fff;
+    padding      : 16px 0;
+}
+
+.btn_green {
+    padding-left : 19px;
+    padding-right: 19px;
+    background   : rgba(137, 202, 98, 1);
+}
+
+.btn_blue {
+    padding-right   : 29px;
+    padding-left    : 29px;
+    background-color: #14B9D5;
+    margin-left     : 16px;
+}
+
+.title_wrapper {
+    text-align: center;
+
+}
+
+.color_title {
+    color: rgba(24, 180, 207, 1);
+}
+
+.post_list {
+    display       : flex;
+    flex-direction: column;
+    height        : 820px;
+    flex-wrap     : wrap;
+}
+
+.post_item_description {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size  : 18px;
+    font-weight: 700;
+    color      : #353A3D;
+    padding    : 20px 15px;
+    text-align : center;
+}
+
+
+.header_desc {
+    background-image: url(../img/Layer\ 402.png);
+    background      : cover no-repeat;
+    width           : 100%;
+    height          : 588px;
+}
+
+.desc_list {
+    display        : flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+    list-style-type: none;
+    align-items    : stretch;
+    padding-bottom : 191px;
+}
+
+.desc_item_list {
+    padding-bottom: 191px;
+}
+
+.desc_line {
+    padding-top   : 87px;
+    padding-bottom: 56px;
+    color         : #18B4CF;
+}
+
+.desc_item {
+    padding-top: 87px;
+
+}
+
+.grid_container {
+    max-width: 1270px;
+    margin   : 0 auto;
+}
+
+.hot_news_list {
+    display: grid;
+    grid-template-areas:
+        "item1 item1 item1 item1 item1 . item2"
+        "item3 item3 item3 . item4 item4 item4"
+        "item5 item5 item5 . item6 item6 item6"
+        "item7 . item8 item8 item8 item8 item8"
+    ;
+    grid-template-columns: 1fr 30px 1fr 60px 1fr 30px 1fr;
+    grid-template-rows   : 259px 418px 418px 259px;
+    padding              : 20px 0 20px 0;
+    grid-row-gap         : 15px;
+}
+
+.item_1 {
+    grid-area: item1;
+
+}
+
+.item_2 {
+    grid-area: item2;
+}
+
+.item_3 {
+    grid-area: item3;
+}
+
+.item_4 {
+    grid-area: item4;
+}
+
+.item_5 {
+    grid-area: item5;
+}
+
+.item_6 {
+    grid-area: item6;
+}
+
+.item_7 {
+    grid-area: item7;
+}
+
+.item_8 {
+    grid-area: item8;
+}
+
+.top_rated_list {
+    display              : grid;
+    grid-template-columns: repeat(7, 1fr);
+
+}
+
+.top_rated_img {
+    width: 100%;
+}
+
+
+.item_header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size  : 18px;
+    font-weight: 700;
+    padding    : 12px 14px;
+    text-align : right;
+}
+
+.item_text {
+    margin     : 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style : 14px;
+    font-weight: normal;
+    text-align : end;
+    color      : #5B6469;
+}
+.item_text_special{
+    display: grid;
+    grid-template-rows: 56px 59px;
+}
+
+
+
+.footer_logo {
+    display         : flex;
+    justify-content : space-between;
+    height          : 80px;
+    background-color: #000;
+    color           : #fff;
+    padding-top     : 29px;
+    font-family     : Verdana, Geneva, Tahoma, sans-serif;
+    font-size       : 13px;
+}
+
+.navbar_bottom {
+
+    height          : 80px;
+    background-color: #000;
+
+}
+
+.navbar_bottom_text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size  : 13px;
+    color      : #ffffff;
+    padding    : 29px 30px;
+}
+
+.navbar_bottom_logo {
+    width  : 38px;
+    height : 24px;
+    padding: 24px 35px;
+}

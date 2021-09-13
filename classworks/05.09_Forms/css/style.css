@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap");
+.page-body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 1330px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.header {
+  background-color: #f9f0ee;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.navigation {
+  display: flex;
+}
+
+.navigation-item {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 17px;
+  letter-spacing: 0.03em;
+  color: #371030;
+  margin-right: 160px;
+  position: relative;
+}
+
+.sub-menu {
+  position: absolute;
+  background-color: #f9f0ee;
+  padding: 30px 25px;
+  width: 220px;
+  top: 38px;
+  left: -30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: none;
+}
+
+.sub-menu-link {
+  color: inherit;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.navigation-item:hover .sub-menu {
+  display: block;
+}
+.master-class-content-wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.page-title {
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 37px;
+  letter-spacing: 0.04em;
+  color: #371030;
+}
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.master-class-description {
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.04em;
+  color: #371030;
+}
+.slider-img-large{
+    width: 568px;
+height: 439px;
+border-radius: 15px;
+overflow: hidden;
+}
+.slider-img-large img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.slider-img-small{
+    width: 131px;
+height: 102px;
+border-radius: 15px;
+overflow: hidden;
+}
+.slider-img-small img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.slider-img{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.master-class-order-title{
+    font-weight: 900;
+font-size: 24px;
+line-height: 29px;
+letter-spacing: 0.04em;
+color: #000000;
+}
+/* .master-class-order-requirements{
+
+} */
+
+.master-class-order-requirements {
+    display: grid;
+    grid-template-areas: 
+    'first-line-1 first-line-2'
+    'second-line-1 second-line-2'
+    'third-line-1 third-line-1'
+    'fifth-line-1 fifth-line-2'
+    'sixs-line-1 sixs-line-2';
+    grid-template-rows: repeat(5, 30px);
+    grid-template-columns: 1fr 1fr;
+    /* gap: 10px; */
+}
+
+.grid-item-1 {
+    grid-area: first-line-1;
+}
+
+.grid-item-2 {
+    grid-area: second-line-1;
+}
+.grid-item-3 {
+    grid-area: first-line-2;
+}
+
+.grid-item-4 {
+    grid-area: second-line-2;
+}
+
+.grid-item-5 {
+    grid-area: fifth-line-1;
+}
+
+.grid-item-6 {
+    grid-area: sixs-line-1;
+}
+
+.grid-item-7 {
+    grid-area: fifth-line-2;
+}
+
+.grid-item-8 {
+    grid-area: sixs-line-2;
+}
+/* .grid-item-9 {
+    grid-area: third-line-1;
+} */
+

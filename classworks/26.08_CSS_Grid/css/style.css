@@ -1,0 +1,121 @@
+body {
+  background-color: #171717;
+  color: #ffffff;
+}
+.main-header {
+  padding-top: 37px;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+.main-header-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.burger-menu-btn {
+  background-color: transparent;
+  border: none;
+}
+.text-highlighted {
+  color: #d6af76;
+}
+.callback-btn {
+  font-size: 18px;
+  line-height: 30px;
+  color: #e4b564;
+  padding: 10px 25px;
+  border: 1px solid #e4b564;
+  background-color: transparent;
+  margin-left: 39px;
+}
+.callback-btn svg {
+  margin-right: 8px;
+}
+.breadcrumbs {
+  width: 100%;
+  display: flex;
+  margin-top: 67px;
+}
+.breadcrumbs a {
+  font-size: 18px;
+  line-height: 13px;
+  color: #606060;
+  font-weight: 350;
+}
+.services-title {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 28px;
+}
+.services-list {
+  font-size: 16px;
+  line-height: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 74px;
+}
+
+.services-list li {
+  display: flex;
+  align-items: center;
+}
+
+.service-arrow {
+    margin-left: 8px;
+}
+
+.service-arrow-reversed {
+    /* transform: rotate(180deg); */
+    /* transform: translate(300px); */
+    transform: scale(2);
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 468px 468px;
+    gap: 27px 35px;
+}
+
+.grid-item-1,
+.grid-item-2,
+.grid-item-3,
+.grid-item-4,
+.grid-item-5 {
+    /* background-image: url("../img/grid-item-1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    background: url("../img/grid-item-1.png") no-repeat center / cover;
+}
+
+/* row-start / column-start / row-end / column-end */
+.grid-item-1 {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.grid-item-2 {
+    grid-area: 1 / 3 / 2 / 5;
+}
+
+.grid-item-3 {
+    grid-area: 1 / 5 / 2 / 7;
+}
+
+.grid-item-4 {
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+.grid-item-5 {
+    grid-area: 2 / 4 / 3 / 7;
+}
+
+
+

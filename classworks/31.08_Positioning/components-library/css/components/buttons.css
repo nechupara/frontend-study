@@ -1,0 +1,23 @@
+.btn {
+  border-radius: 100px;
+  padding: 20px 74px;
+  min-width: 250px;
+  min-height: 63px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  border: none;
+}
+.btn-primary {
+    background: #FFB0BA;
+    box-shadow: 3px 3px 0px 3px #DE8E98;
+    color: #9A3C48;
+}
+
+.btn-secondary {
+    background: #FFC1AE;
+    box-shadow: 3px 3px 0px 3px #E4B8AB;
+    color: #923F25;
+}

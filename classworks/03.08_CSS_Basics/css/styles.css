@@ -1,0 +1,49 @@
+.section {
+    text-align: center;
+}
+
+.section-title {
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333333;
+    
+}
+.section-pharagraph {
+font-family: Lato;
+font-size: 17px;
+line-height: 24px;
+color: #4D4943;
+
+}
+.line-separator{
+width: 60px;
+height: 3px;
+background-color:#F1AD1D;
+border: none;
+}
+.logo {
+    font-size: 25px;
+    color: #F1AD1D;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav-link {
+font-family: Lato;
+line-height: 22px;
+color:  #3D3D3D;
+text-decoration: none;
+}
+.nav-active {
+color: #F1B128;
+}
+.nav-list {
+    font-size: 18px;
+    list-style-type: none;
+}
+
+.nav-list li {
+    display: inline-block;
+}

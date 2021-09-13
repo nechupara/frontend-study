@@ -1,0 +1,37 @@
+ /* .title {
+    /* размер шрифта */
+    font-size: 16px;
+    /* Жирность шрифта */
+   /* / font-weight: 400;
+}  */
+
+/* 
+.title-main {
+    /* размер шрифта */
+    font-size: 18px;
+} */
+
+/* все параграфы с классом hightlighted-text */
+/* p.hightlighted-text {
+    font-size: 38px;
+}
+
+#firstParagraph {
+    font-style: italic;
+    color: violet;
+} */
+
+/* Вложенный селектор */
+/* section .section-title {
+
+} */
+/* 
+
+ .title-main, h6 {
+    font-style: italic;
+} */
+ 
+
+/* .text-shadow {
+   font-style: italic;
+} */ */

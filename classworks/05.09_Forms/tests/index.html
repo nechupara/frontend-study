@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .logo-img {
+        background-image: url(1111);
+      }
+      a:hover .logo-img {
+        background-image: url(2222);
+      }
+      .logo-text {
+          
+          transition: all 2s;
+      }
+      a:hover .logo-text {
+         transform: translateX(200px);
+          color: orange;
+      }
+
+      .tour-item {
+          position: relative;
+      }
+
+      .price-block {
+          display: none;
+          position: absolute;
+          /* посчитайте сами плз, это не точно  */
+          bottom: 165px; 
+      }
+
+      .tour-item .price-block {
+          display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">
+      <span class="logo-img"></span>
+      <h2 class="logo-text"><span>Milan</span>holidays</h2>
+    </a>
+
+    <div class="tour-item">
+     <img src="" alt="" srcset="">
+     <h6>Title</h6>
+     <div class="price-block"> 111111 orange block</div>
+    </div>
+  </body>
+</html>

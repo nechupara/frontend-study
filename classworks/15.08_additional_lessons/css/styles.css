@@ -1,0 +1,45 @@
+       /* селектор по тегу */
+p {
+  color: red;
+}
+
+main {
+       /* background-image: url("../img/test.jpg"); */
+}
+
+h2 {
+       /* цвет */
+ color: #333333;
+ /* название шрифта  */
+ font-family: Montserrat;
+/* Стиль текста */
+font-style:italic ;
+/* Жирность шрифта  */
+font-weight:700;
+/* Размер шрифта */
+font-size: 22px;
+/* Высота строки  */
+line-height: 1;
+/* Преобразовать текст в регистыр  */
+text-transform: uppercase;
+       
+}
+/* что брать с фигмы */
+/* 1.Все цвета 
+2.Изображения
+3.Параметры текста (размер шрифта,название шрифта,другой визуал) */
+
+
+li {
+       display: inline-block;
+       margin-right: 25px;
+       padding-top: 50px;
+}
+
+ul {
+       border: 3px solid black;
+       padding-left: 20px;
+       padding-top: 14px;
+       padding-bottom: 20px;
+       padding-right: 14px;
+}

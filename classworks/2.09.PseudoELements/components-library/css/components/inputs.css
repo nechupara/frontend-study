@@ -1,0 +1,47 @@
+.text-input {
+  position: relative;
+  width: 100%;
+}
+.text-input input {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  color: #371030;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #371030;
+}
+.text-input.valid input {
+  color: #78d9a8;
+  border: none;
+  border-bottom: 1px solid #78d9a8;
+}
+.text-input.valid::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  background-image: url("../../img/checkmark.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  right: 0;
+}
+.text-input.invalid input {
+  color: #ffcc8d;
+  border: none;
+  border-bottom: 1px solid #ffcc8d;
+}
+.text-input.invalid::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  background-image: url("../../img/icon-warning.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  right: 0;
+}

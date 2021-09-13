@@ -1,0 +1,59 @@
+*,
+*::after,
+*::before {
+   box-sizing: border-box;
+}
+
+.page-body {
+   margin: 0;
+}
+
+.container {
+   width: 1170px;
+   padding-left: 15px;
+   padding-right: 15px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.navigation {
+   display: inline-block;
+   vertical-align: middle;
+}
+.menu {
+   display: inline;
+}
+.menu-item {
+   display: inline;
+   margin-left: 48px;
+}
+.menu-link {
+   text-decoration: none;
+   color: #3c4658;
+}
+.logo {
+   display: inline-block;
+   vertical-align: middle;
+}
+.page-header {
+   border-bottom: 1px solid #e4e7eb;
+   border-top: 1px solid #e4e7eb;
+   padding-bottom: 14px;
+   padding-top: 14px;
+   margin-top: 48px;
+}
+
+.banner .container {
+   background-image: url(../img/bg_animation\ 1.jpg);
+   padding: 40px 98px;
+}
+
+.banner_img {
+   vertical-align: middle;
+}
+
+.banner_description {
+   display: inline-block;
+   width: 653px;
+   vertical-align: middle;
+}
