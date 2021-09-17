@@ -29,8 +29,8 @@ body {
 }
 
 .overflow {
+    height: 700px;
     overflow: hidden;
-    height: 70vh;
 }
 
 .text-title {
@@ -42,9 +42,9 @@ body {
 
 @keyframes scroll {
     from {
-        transform: rotateX(55deg) translateY(65vh);
+        transform: rotateX(50deg) translateY(37.5rem);
     }
     to {
-        transform: rotateX(55deg) translateY(-50vh);
+        transform: rotateX(50deg) translateY(-30rem);
     }
 }
