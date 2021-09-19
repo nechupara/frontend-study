@@ -1,0 +1,17 @@
+- auto rename tag
+- auto close tag 
+- auto complete tag
+- auto import
+- better comments !!
+- bracket pair colorizer !!
+- ccs peek
+- css navigation
+- html css support
+- html/css/javascript snippets
+- live server
+- intlliSense for CSS class name
+- open in browser
+- path intellisenss
+- prettier
+- eslint !!
+- IntelliSense for CSS class names in HTML
