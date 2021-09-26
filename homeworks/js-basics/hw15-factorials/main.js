@@ -8,7 +8,7 @@
 меня чтение рекурсивного кода взрывает мозг :))) */
 
 let userNumber = prompt('Enter number:');
-while(Number.isNaN(+userNumber) || !userNumber || +userNumber < 0) {
+while(!Number.isInteger(+userNumber) || !userNumber || +userNumber < 0) {
     userNumber = prompt('Entered number is incorrect.\nPlease, enter correct number:')
 }
 
