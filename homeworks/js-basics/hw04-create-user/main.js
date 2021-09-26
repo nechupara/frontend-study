@@ -16,20 +16,16 @@ function createNewUser() {
             return (this.firstName.charAt(0) + this.lastName).toLowerCase();
         },
         setFirstName(name) {
-            Object.defineProperty(this, "firstName", { writable: true });
-            this.firstName = name;
-            Object.defineProperty(this, "firstName", { writable: false });
+            Object.defineProperty(this, "firstName", { value: name });
         },
         setLastName(name) {
-            Object.defineProperty(this, "lastName", { writable: true });
-            this.lastName = name;
-            Object.defineProperty(this, "lastName", { writable: false });
-        },
+            Object.defineProperty(this, "lastName", { value: name });
+         },
     };
 
     Object.defineProperties(newUser, {
-        firstName: { writable: false },
-        lastName: { writable: false },
+        firstName: { writable: false, configurable: true },
+        lastName: { writable: false, configurable: true },
     });
 
     return newUser;
