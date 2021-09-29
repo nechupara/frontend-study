@@ -1,8 +1,5 @@
-function foo(i) {
-    if (i < 0)
-      return;
-    console.log('begin: ' + i);
-    foo(i - 1);
-    console.log('end: ' + i);
-  }
-  foo(3);
+let str1 = new String('blblblblblblbl');
+let aaa = str1;
+aaa[0] = 'aaaaaaaaaaa';
+console.log(str1);
+console.log(eval(str1));
