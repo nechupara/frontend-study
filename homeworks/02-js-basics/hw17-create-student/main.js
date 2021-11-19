@@ -49,7 +49,7 @@ let amountOfLowGrades = 0;
 let amountOfSubjects = 0;
 let sumOfGrades = 0;
 
-for (const key in student.table) {
+for (let key in student.table) {
     const currentGrade = student.table[key];
 
     if (currentGrade < 4) amountOfLowGrades++;
