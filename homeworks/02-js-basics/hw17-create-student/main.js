@@ -39,9 +39,9 @@ student.lastName = getUserName('last name');
 student.table = {};
 
 do {
-    let subject = getSubject();
+    const subject = getSubject();
     if (subject === null) break;
-    let grade = getGrade(subject);
+    const grade = getGrade(subject);
     student.table[subject] = grade;
 } while (true);
 
