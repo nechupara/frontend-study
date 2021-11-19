@@ -1,0 +1,323 @@
+/**/
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+img {
+	max-width: 100%
+}
+
+a {
+	text-decoration: none;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.container {
+	margin: 0 auto;
+	width: 1170px;
+}
+
+.divider {
+	border: none;
+	background: #F1AD1D;
+	width: 62px;
+	height: 4px;
+}
+
+
+.header-wrap{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header-wrap::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 3px;
+	width: 100%;
+	background-color: #F1B128;
+}
+
+.header-logo {}
+
+.header-menu {}
+
+.menu-list .menu-item {
+	display: inline-block;
+}
+
+.menu-list .menu-item:not(:last-child) {
+	margin-right: 35px;
+}
+
+.menu-list .menu-item a {
+	color: black;
+	text-decoration: none;
+}
+
+
+
+.section-featured {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	margin-top: 116px;
+	background-image: url("../images/featured/bg.png");
+	background-position: center;
+	background-size: cover;
+	height: 475px;
+}
+
+.section-featured .featured-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.6;
+	z-index: 1;
+	background-color: black;
+	/*right: 0;*/
+	/*bottom: 0;*/
+	width: 100%;
+	height: 100%;
+}
+
+.section-featured .divider {
+	margin-bottom: 66px;
+}
+
+.section-featured .featured-container {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+}
+
+.section-featured .colored {
+	color: #F1AD1D;
+}
+
+.section-featured .featured-title {
+	margin-bottom: 66px;
+	color: white;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.section-featured .features-images {
+	display: flex;
+	align-items: center;
+	margin: 0 -30px;
+}
+
+.section-featured .image-item {
+	margin: 0 30px;
+}
+
+
+
+/*
+* images-section-secret
+*/
+
+.images-section-secret {
+	margin-top: 116px;
+}
+
+.images-section-secret .section-header {
+	text-align: center;
+}
+
+.images-section-secret .section-header .header-title {
+	margin-bottom: 28px;
+	color: #333333;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.images-section-secret .section-header .header-desc {
+	color: #4D4943;
+	font-size: 17px;
+	line-height: 1.2;
+}
+
+.images-section-secret .divider {
+	margin: 48px auto 52px;
+}
+
+.images-section-secret .images-wrapper {
+	margin: 2px 1px;
+	/*
+		делаем компинсацию из-за того что мы у элементов
+		делали margin
+	*/
+}
+
+.images-section-secret .image-item {
+	display: inline-block;
+	position: relative;
+	/*
+		когда мы все выровняли в одно строку то появился вот
+		такой http://prntscr.com/1sdvcn6 отступ в 3px
+		поэтому делаем margin что бы его сделать то как он на дизайне 2px
+	*/
+	margin: -2px -1px;
+	width: 193px;
+}
+
+.images-section-secret .image-item-desc {
+	position: absolute;
+	bottom: 16px;
+	left: 16px;
+	background-color: #333333;
+	padding: 14px;
+	min-width: 116px;
+	color: white;
+	font-size: 14px;
+}
+
+.images-section-secret .image-item-desc .colorred {
+	color: #F1AD1D;
+}
+
+.images-section-secret .image-item img {
+	width: 100%;
+}
+
+
+
+/*
+* images-section
+*/
+
+.images-section {
+	margin-top: 128px;
+}
+
+.images-section .section-header {
+	margin-bottom: 100px;
+	text-align: center;
+	/*
+		text-align - отцентровать текст.
+	*/
+}
+
+.images-section .section-header .header-title {
+	margin-bottom: 28px;
+	color: #333333;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 1;
+	text-transform: uppercase;
+	/*
+		text-transform - сделать текст заглавными буквами.
+		font-weight - толщина букв
+	*/
+}
+
+.images-section .section-header .header-desc {
+	color: #4D4943;
+	font-size: 17px;
+	line-height: 1.2;
+}
+
+.images-section .section-wrapper {
+}
+
+.images-section .images-wrapper {
+	display: inline-block;
+	vertical-align: top;
+	margin: -15px;
+	width: 52%;
+	/*
+		text-transform - сделать текст заглавными буквами.
+		font-weight - толщина букв
+		vertical-align - описывает вертикальное позиционирование строчных (inline), строчно-блочных (inline-block)
+		https://developer.mozilla.org/ru/docs/Web/CSS/vertical-align
+	*/
+}
+
+.images-section .images-wrapper .image-item {
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	margin: 15px;
+	/*
+		box-sizing - определяет как вычисляется общая ширина и высота элемента.
+		https://developer.mozilla.org/ru/docs/Web/CSS/box-sizing
+	*/
+}
+
+.images-section .images-wrapper .image-item-desc {
+	position: absolute;
+	bottom: 16px;
+	left: 16px;
+	background-color: #333333;
+	padding: 14px;
+	min-width: 116px;
+	color: white;
+	font-size: 14px;
+}
+
+.images-section .content-wrapper {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	padding-left: 30px;
+	width: 48%;
+}
+
+.images-section .content-wrapper .content-title {
+	margin-bottom: 26px;
+	color: #333333;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.images-section .content-wrapper .content-title .colored {
+	color: #F1AD1D;
+}
+
+.images-section .content-wrapper .content-text {
+	color: #505050;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.images-section .content-wrapper .content-text + .content-text {
+	margin-top: 30px;
+}
+
+.images-section .content-wrapper .button {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: 36px;
+	background: #F1AD1D;
+	padding: 19px 27px;
+	color: #fff;
+
+	font-size: 14px;
+	line-height: 14px;
+	text-decoration: none;
+	/*
+		text-decoration - убрать у ссылки подчеркивание.
+		https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+	*/
+}

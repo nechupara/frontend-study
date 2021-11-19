@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://gitlab.com/dashboard/projects" id="link">Link to google</a>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      perferendis aperiam omnis commodi rem beatae quibusdam eos veniam,
+      perspiciatis sit voluptatibus nesciunt eaque dolore iste recusandae autem,
+      deserunt eligendi libero?
+    </p>
+    <input type="text" id="input" />
+    <script>
+      document.getElementById("link").addEventListener("click", (event) => {
+        event.preventDefault();
+        alert(1);
+        // location.href = document.getElementById("link").getAttribute("href");
+      });
+
+      // document.addEventListener("mousedown", function (event) {
+      //   event.preventDefault();
+      // });
+
+      // document
+      //   .getElementById("input")
+      //   .addEventListener("keydown", function (event) {
+      //     if (event.key !== "p") {
+      //       event.preventDefault();
+      //     }
+      //   });
+    </script>
+  </body>
+</html>

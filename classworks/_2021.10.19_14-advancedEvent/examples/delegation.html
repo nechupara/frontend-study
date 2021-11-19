@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #list {
+        list-style: none;
+        padding-left: 0;
+        margin: 8px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        box-shadow: 2px -2px 35px 8px rgba(34, 60, 80, 0.2);
+        margin-bottom: 16px;
+      }
+      .isDone {
+        text-decoration: line-through;
+      }
+
+      button {
+        font-size: 18px;
+        background-color: cornflowerblue;
+        padding: 8px;
+        margin: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      input {
+        border-radius: 6px;
+        padding: 8px;
+        border: 1px solid cornflowerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TO-DO List PE2 Group</h1>
+    <input type="text" class="input" />
+    <button id="addItem">Add item</button>
+    <ul id="list"></ul>
+    <script>
+      // 1) чтоб событие addItem работало по кнопке Enter
+      // 2) Чтоб по клику на Ctrl + D удалялся последний айтем списка
+      // 3) Добавить кнопку Clear All. По клику на ее удалять все элементы списка.
+      // Также удаление всех должно происходить по сочетании клавишь Shift + E
+
+      const addItemButton = document.getElementById("addItem");
+
+      addItemButton.addEventListener("click", addItem);
+
+      document
+        .getElementById("list")
+        .addEventListener("click", function (event) {
+          console.log(event.target);
+          if ((event.target.className = "remove-btn")) {
+            event.target.closest("li").remove();
+          }
+        });
+
+      function addItem() {
+        const element = document.createElement("li");
+        const inputValue = document.querySelector(".input").value;
+        element.innerHTML = inputValue;
+        const itemButton = createRemoveButton();
+        const isDoneButton = createIsDoneButton();
+        element.append(itemButton);
+        element.append(isDoneButton);
+        document.getElementById("list").append(element);
+      }
+
+      function createRemoveButton() {
+        const itemButton = document.createElement("button");
+        itemButton.innerHTML = "Remove me";
+        itemButton.className = "remove-btn";
+        return itemButton;
+      }
+
+      function createIsDoneButton() {
+        const doneButton = document.createElement("button");
+        doneButton.innerHTML = "Is done";
+        doneButton.addEventListener("click", function () {
+          this.closest("li").classList.add("isDone");
+        });
+        return doneButton;
+      }
+
+      /////////////////////////////////
+
+      // По событию "Отжатой клавиши" запускаем колбек функцию
+      document.addEventListener("keyup", addItemOnEnter);
+
+      // Запускаем  функцию addItem() только при условии не пустого input и по нажатию на кнопку Enter
+      function addItemOnEnter(event) {
+        if (
+          event.key === "Enter" &&
+          document.querySelector(".input").value !== ""
+        ) {
+          addItem();
+        }
+      }
+
+      document.addEventListener("keyup", removeLastListItem);
+
+      function removeLastListItem(event) {
+        if (event.shiftKey && event.key === "k") {
+          let liLastItem = document.querySelector("#list li:last-child");
+          if (liLastItem) {
+            liLastItem.remove();
+          }
+        }
+      }
+
+      ////////////////////////
+
+      function createDeleteAllButton(event) {
+        //Создаем кнопку встовляем ее на страницу.
+      }
+
+      function removeAllItems(event) {
+        //Переребираем все ли и удаляем их
+      }
+
+      /////////////////////////////////////////////
+    </script>
+  </body>
+</html>

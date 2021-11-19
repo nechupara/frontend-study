@@ -21,7 +21,7 @@
 
 const filterBy = (arrayToFilter, typeToDelete) => {
     if (typeToDelete === 'null') return arrayToFilter.filter(element => element !== null);
-    return arrayToFilter.filter( element => typeof element !== typeToDelete );
+    return arrayToFilter.filter( element => typeof element !== typeToDelete || element === null);
 }
 
 const allTypes = [

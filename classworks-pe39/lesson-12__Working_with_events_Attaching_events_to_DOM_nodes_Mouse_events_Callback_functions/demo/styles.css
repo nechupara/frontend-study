@@ -1,0 +1,50 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+:root {
+  --color1: #fffff6;
+  --color2: #161619;
+  --color3: grey;
+  --color4: rebeccapurple;
+  --color5: orange;
+  --color6: mistyrose;
+  --color7: skyblue;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 1fr 1fr;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  background-color: var(--color1);
+  color: var(--color2);
+}
+
+section {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+button {
+  height: 40px;
+  width: 150px;
+  border-radius: 7px;
+  background-color: transparent;
+  border: 3px solid;
+  border-color: currentColor;
+  color: var(--color2);
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--color3);
+}

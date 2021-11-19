@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testJS</title>
-</head>
-<body>
-    <script src="script.js"></script>
-</body>
+<html>
+    <head>
+        <base target="_top" />
+        <?!= include('page-css') ?>
+    </head>
+    <body>
+        <div class="sections-wrapper">
+            <section class="active-students"></section>
+            <section class="lazy-students"></section>
+        </div>
+
+        <?!= include('page-js') ?>
+        
+    </body>
 </html>

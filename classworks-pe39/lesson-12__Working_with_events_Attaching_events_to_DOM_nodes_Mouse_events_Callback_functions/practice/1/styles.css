@@ -1,0 +1,36 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  color: #161619;
+  background-color: #fffff6;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+button {
+  --color: #161619;
+
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+  height: 40px;
+  width: 175px;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: transparent;
+  border: 3px solid;
+  border-color: var(--color);
+  color: var(--color);
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  --color: grey;
+}

@@ -1,26 +1,71 @@
-const student = {name: null, lastName: null};
+// FUNCTIONS SECTION ///////
+const getUserName = (typeOfName) => {
+    let userName = prompt(`Enter your ${typeOfName}:`);
+    while (!userName) {
+        userName = prompt(
+            `You haven't entered your ${typeOfName}.\nPlease, enter your ${typeOfName}:`
+        );
+    }
+    return userName;
+};
 
-let userName = prompt('Enter your name:');
-while (!userName) {
-    userName = prompt('You haven\'t entered your name.\nPlease, enter your name:');
-}
+const getSubject = () => {
+    let subject;
+    do {
+        subject = prompt("Enter name of subject:");
+    } while (!subject && subject !== null);
+    return subject;
+};
 
-let userLastName = prompt('Enter your last name:')
-while (!userLastName) {
-    userLastName = prompt('You haven\'t entered your name.\nPlease, enter your name:');
-}
+const isGradeValid = (grade) => {
+    if (grade && !Number.isNaN(+grade) && +grade >= 0) return true;
+    return false;
+};
 
-student.name = userName;
-student.lastName = userLastName;
+const getGrade = (subjectName) => {
+    let grade;
+    do {
+        grade = prompt(`Enter ${subjectName} grade:`);
+    } while (!isGradeValid(grade));
+    return +grade;
+};
 
-let subject;
-let rate;
+/////////////////////////
+// MAIN LOGIC SECTION ///
+const student = { name: null, lastName: null };
+
+student.name = getUserName('name');
+student.lastName = getUserName('last name');
+student.table = {};
 
 do {
-    subject = prompt('Enter name of subject:');
+    let subject = getSubject();
     if (subject === null) break;
-    rate = prompt('Enter rate:');
-    
-} while(true);
+    let grade = getGrade(subject);
+    student.table[subject] = grade;
+} while (true);
 
-console.log(student.name, student.lastName);
+let amountOfLowGrades = 0;
+let amountOfSubjects = 0;
+let sumOfGrades = 0;
+
+for (const key in student.table) {
+    const currentGrade = student.table[key];
+
+    if (currentGrade < 4) amountOfLowGrades++;
+    amountOfSubjects++;
+    sumOfGrades += currentGrade;
+}
+
+if (amountOfSubjects) {
+    const avgGrade = sumOfGrades / amountOfSubjects;
+
+    if (amountOfLowGrades) {
+        alert(`Amount of grades less than 4 is: ${amountOfLowGrades}`);
+    } else {
+        alert("The student has been transferred to the next course.");
+        if (avgGrade >= 7) alert("The student has been awarded a scholarship.");
+    }
+} else {
+    alert('You haven\'t entered any subject')
+}

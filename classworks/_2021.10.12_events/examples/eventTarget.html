@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Название документа</title>
+    <style>
+      #one {
+        background-color: #99c2ff;
+        height: 150px;
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="one"></div>
+
+    <script>
+      // eventTarget.addEventListener(тип_события, обработчик, фаза);
+
+      // тип_события: строка, указывающая тип события для которого регистрируется обработчик. Тип события указывается без префикса "on".
+      // обработчик: функция выражение или имя функции, которая должна вызываться при возникновении события, указанного типа.
+      // фаза: булево значение, которое определяет, для какой фазы распространения события будет зарегистрирован обработчик. Возможные значения:
+      // true - регистрирует обработчик события для фазы перехвата.
+      // false - регистрирует обработчик события для фазы всплытия.
+
+      // const div = document.getElementById("one");
+      // div.addEventListener("click", foo);
+
+      // function foo(e) {
+      //   // https://developer.mozilla.org/ru/docs/Web/API/MouseEvent
+      //   console.log(e);
+      //   console.log(event.target);
+
+      //   alert("Hi!");
+      // }
+
+      const div = document.getElementById("one");
+      div.addEventListener("click", function (event) {
+        console.log(event.target);
+
+        // foo(e);
+      });
+
+      // function foo(e) {
+      //   // https://developer.mozilla.org/ru/docs/Web/API/MouseEvent
+      //   console.log(e);
+      //   console.log(event.target);
+
+      //   alert("Hi!");
+      // }
+    </script>
+  </body>
+</html>

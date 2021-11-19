@@ -1,0 +1,20 @@
+body {
+    background-color: red;
+  }
+
+.sections-wrapper {
+    display: flex;
+
+}
+
+.active-students {
+    width: 70%;
+    height: 600px;
+    background-color: green;
+}
+
+.lazy-students {
+    width: 30%;
+    height: 600px;
+    background-color: yellow;
+}

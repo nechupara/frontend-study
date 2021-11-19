@@ -1,0 +1,32 @@
+#list {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  box-shadow: 2px -2px 35px 8px rgba(34, 60, 80, 0.2);
+  margin-bottom: 16px;
+}
+.isDone {
+  text-decoration: line-through;
+}
+
+button {
+  font-size: 18px;
+  background-color: cornflowerblue;
+  padding: 8px;
+  margin: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input {
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid cornflowerblue;
+}

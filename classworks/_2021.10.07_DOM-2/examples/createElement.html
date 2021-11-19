@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>||Работа с элементами||</title>
+  </head>
+
+  <body>
+    <div id="container" onclick="removeElement()">
+      Текст выше сгенерирован автоматически.
+    </div>
+  </body>
+
+  <script>
+    // Создаем єлемент
+    const newElement = document.createElement("p");
+    newElement.innerHTML = "<h1>Hello</h1>";
+    newElement.classList.add("new-element");
+
+    // Добавляем элемент на страницу
+    document.getElementById("container").append(newElement);
+
+    function removeElement() {
+      // Удаляем элемент
+      document.getElementById("container").remove();
+    }
+  </script>
+</html>

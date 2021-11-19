@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   console.log(document.getElementById("showScroll"));
+      // });
+
+      // window.addEventListener("load", () => {
+      //   console.log(document.getElementById("showScroll"));
+      // });
+    </script>
+    <style>
+      body {
+        height: 400vh;
+      }
+
+      div {
+        position: fixed;
+        top: 0;
+        color: blue;
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="showScroll"></div>
+    <script>
+      window.addEventListener("scroll", function () {
+        document.getElementById("showScroll").innerHTML =
+          // КОличество пикселей, прокрученных по вертикали
+          window.pageYOffset + "px";
+      });
+    </script>
+  </body>
+</html>

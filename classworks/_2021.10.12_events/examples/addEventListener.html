@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Название документа</title>
+    <style>
+      #one {
+        background-color: #99c2ff;
+        height: 150px;
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="one"></div>
+
+    <script>
+      // eventTarget.addEventListener(тип_события, обработчик, фаза);
+
+      // тип_события: строка, указывающая тип события для которого регистрируется обработчик. Тип события указывается без префикса "on".
+      // обработчик: функция выражение или имя функции, которая должна вызываться при возникновении события, указанного типа.
+      // фаза: булево значение, которое определяет, для какой фазы распространения события будет зарегистрирован обработчик. Возможные значения:
+      // true - регистрирует обработчик события для фазы перехвата.
+      // false - регистрирует обработчик события для фазы всплытия.
+
+      const div = document.getElementById("one");
+
+      div.addEventListener("click", createSquare);
+
+      // div.addEventListener("click", function () {
+      //   let userSize = prompt("Размер круга");
+      //   createSquare(userSize);
+      // });
+
+      
+      // div.addEventListener("click", function () {
+      //   console.log(1);
+      // });
+
+      // div.addEventListener("click", () => {});
+
+      // function foo() {
+      //   alert("Hi!");
+      // }
+
+      function createSquare(size) {
+        let squareNew = document.createElement("div");
+        squareNew.className = "square";
+        squareNew.style.width = `${size}px`;
+        squareNew.style.height = `${size}px`;
+        squareNew.style.backgroundColor = "black";
+        document.body.append(squareNew);
+      }
+    </script>
+  </body>
+</html>
