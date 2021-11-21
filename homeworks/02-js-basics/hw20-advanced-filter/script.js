@@ -14,16 +14,13 @@ const filterCollection = (arrToFilter, findStr, findAll, ...fields) => {
                     callback(elem[key], wordsToFind, [...pathArray, null]);
                 } else if (fields.includes(currentField)) {
                     const fieldValue = String(elem[key]).toLowerCase();
-                    console.log(fieldValue);
                     const index = wordsToFind.findIndex((word) => word === fieldValue);
                     if (index !== -1) wordsToFind.splice(index, 1);
                 }
             }
         }
 
-        if (wordsToFind.length <= condition) {
-            return true;
-        }
+        if (wordsToFind.length <= condition)  return true;
         return false;
     };
 
@@ -32,9 +29,10 @@ const filterCollection = (arrToFilter, findStr, findAll, ...fields) => {
     });
 };
 
+///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 const arr = [
-    { description: null },
+    { description: "Toyota" },
     { locales: [{ name: "Toyota" }, { description: "En_US" }] },
     { contentType: { name: "Toyota" } },
     { fakefield: 10 },
