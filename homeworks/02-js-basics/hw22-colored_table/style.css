@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+}
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: 1px solid gray;
+    background-color: #fff;
+}
+
+.black {
+    background-color: #000;
+}
+
+.reverse .black {
+    background-color: #fff;
+}
+
+.reverse td {
+    background-color: #000;
+}
