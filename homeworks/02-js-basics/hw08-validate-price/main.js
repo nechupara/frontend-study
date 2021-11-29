@@ -1,50 +1,51 @@
-const priceInputElement = document.getElementById("price-input");
+const input = document.querySelector("#price-input");
+const warningMsg = document.querySelector("#warning-msg");
+const label = document.querySelector(".price-label");
 
+// громоздкий код создания и вставки спана с ценой
+// просто для удобства вынес в функцию
 const addPrice = (price) => {
-    priceInputElement.classList.add("green-text");
+    input.classList.add("green-text");
 
-    const priceOutputSpan = document.createElement("span");
-    priceOutputSpan.classList.add("output-price");
-    priceOutputSpan.innerHTML = `Current price: ${price}`;
+    const outputPrice = document.createElement("span");
+    outputPrice.classList.add("output-price");
+    outputPrice.innerHTML = `Текущая цена: ${price}`;
 
     const removeBtn = document.createElement("span");
     removeBtn.classList.add("remove-btn");
     removeBtn.innerText = "x";
+
+    outputPrice.append(removeBtn);
+    label.before(outputPrice);
+
     removeBtn.addEventListener("click", (event) => {
-        event.target.closest(".output-price").remove();
-        clearPriceInputElement();
+        event.target.parentElement.remove();
+        clearInput();
     });
-
-    priceOutputSpan.insertAdjacentElement("beforeend", removeBtn);
-
-    document.body.insertAdjacentElement("afterbegin", priceOutputSpan);
 };
 
-const clearPriceInputElement = () => {
-    priceInputElement.value = "";
-    priceInputElement.classList.remove("green-text");
+// используется несколько раз, вынес в отдельную функцию
+const clearInput = () => {
+    input.value = "";
+    input.classList.remove("green-text");
 };
 
-const showWarning = () => {
-    document.getElementById('warning-message').classList.remove('display-none');
-    priceInputElement.classList.add('border-red');
-}
-
-const hideWarning = () => {
-    document.getElementById('warning').classList.remove('display-show');
-}
-
-priceInputElement.addEventListener("blur", (event) => {
-    const price = event.target.value
+input.addEventListener("blur", (event) => {
+    const price = event.target.value;
     if (!price) return;
     if (Number.isNaN(+price) || +price <= 0) {
-        showWarning();
+        //show warning
+        warningMsg.classList.remove("hidden");
+        input.classList.add("border-red");
         return;
     }
-    hideWarning();
+    // hide warning;
+    warningMsg.classList.add("hidden");
+    input.classList.remove("border-red");
     addPrice(price);
 });
 
-priceInputElement.addEventListener("focus", () => {
-    clearPriceInputElement();
+input.addEventListener("focus", () => {
+    // рамочка зелёная в CSS прописана псевдоклассом
+    clearInput();
 });
