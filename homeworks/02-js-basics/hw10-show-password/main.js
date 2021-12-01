@@ -18,7 +18,8 @@ icons.forEach(elem => {
     })
 })
 
-btn.addEventListener('click', e => {
+btn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (inputs[0].value === inputs[1].value) {
         warnMsg.classList.add('hidden');
         alert('You are welcome!');
