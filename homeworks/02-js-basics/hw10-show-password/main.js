@@ -6,7 +6,6 @@ const inputs = document.querySelectorAll('.input-password');
 icons.forEach(elem => {
     elem.addEventListener('click', event => {
         const icon = event.target;
-        console.log(icon);
         icon.classList.toggle('fa-eye');
         icon.classList.toggle('fa-eye-slash');
         const input = icon.previousElementSibling;
@@ -20,6 +19,7 @@ icons.forEach(elem => {
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
+    if (!inputs[0].value && !inputs[1].value) return;
     if (inputs[0].value === inputs[1].value) {
         warnMsg.classList.add('hidden');
         alert('You are welcome!');
