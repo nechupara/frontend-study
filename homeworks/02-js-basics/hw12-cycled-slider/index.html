@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>HW-12 Cycled sliders</title>
+  <style>
+    .image-to-show {
+      width: 400px;
+      height: 400px;
+    }
+
+    .images-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="images-wrapper">
+    <img src="./img/1.jpg" alt="image of game" class="image-to-show" />
+    <img src="./img/2.jpg" alt="image of game" class="image-to-show hidden" />
+    <img src="./img/3.JPG" alt="image of game" class="image-to-show hidden" />
+    <img src="./img/4.png" alt="image of game" class="image-to-show hidden" />
+  </div>
+  <button id="stop-btn">Прекратить</button>
+  <button id="continue-btn">Возобновить показ</button>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
