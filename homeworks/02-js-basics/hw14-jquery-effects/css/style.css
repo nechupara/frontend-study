@@ -20,6 +20,7 @@ body {
    height: 60px;
    right: 30px;
    bottom: 30px;
+   cursor: pointer;
 }
 
 .section-title {
