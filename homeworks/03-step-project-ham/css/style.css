@@ -1,0 +1,203 @@
+body {
+    background-color: rgb(250, 245, 215);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* HEADER SECTION */
+ 
+.header-section {
+    height: 1012px;
+    min-width: 1160px;
+    background-image: url('../img/sections-background/1-header-bg.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 243px;
+    margin-bottom: 8px ;
+}
+
+.header-section::before {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #9E9E9B;
+}
+
+.menu-header-wrapper {
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: rgba(94, 93, 88, 0.6);
+    margin-bottom: auto;
+}
+
+.header-bar {
+    display: flex;
+    align-items: stretch;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-right: auto;
+}
+
+.hexagon-logo {
+    width: 58px;
+    height: 67px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/header/logo-hexagon.svg');
+    color: white;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.text-logo {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.light-text-logo {
+    color: white;
+}
+
+.colored-text-logo {
+    color: #18CFAB;
+    font-weight: 700;
+}
+
+.menu-header {
+    display: flex;
+    align-items: stretch;
+}
+
+.menu-header-list {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 22px;
+}
+
+.menu-header-item {
+    display: flex;
+    align-items: center;
+}
+
+.menu-item-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.menu-item-link:hover {
+    color: #18CFAB;
+    border-bottom: solid 2px #18CFAB;
+    border-top: solid 2px rgba(255, 255, 255, 0);
+}
+
+.header-search-btn {
+    background: none;
+    width: 40px;
+    height: 40px;
+    margin-left: 18px;
+    border:  none;
+    cursor: pointer;
+    align-self: center;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn-logo {
+    /* calculate filter here: https://codepen.io/sosuke/pen/Pjoqqp
+    insert brightness(0) saturate(100%) befor non-black initial colors
+    the color from Figma is #BBBBBB */
+    filter: brightness(0) saturate(100%) invert(91%) sepia(1%) saturate(0%) hue-rotate(204deg) brightness(88%) contrast(77%);
+    width: 21px;
+}
+
+.header-search-btn:hover .search-btn-logo {
+    /* #18CFAB */
+    filter: brightness(0) saturate(100%) invert(78%) sepia(30%) saturate(6990%) hue-rotate(120deg) brightness(100%) contrast(81%);
+}
+
+.header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.header-text p:nth-of-type(1) {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 700;
+    
+}
+
+.header-text p:nth-of-type(2) {
+    font-size: 78px;
+    line-height: 78px;
+    font-weight: 700;
+}
+
+.header-text p:nth-of-type(3) {
+    font-size: 34px;
+    line-height: 34px;
+    color: #D4D4D4;
+}
+
+.header-btns {
+    margin-top: 137px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+/* FEATURES SECTION */
+/* ======================= */
+.features-section {
+    display: flex;
+    
+
+}
+
+.features-section div {
+    flex-grow: 1;
+}
+
+.features-item {
+    height: 360px;
+
+}
+
+.features-item:nth-child(odd) {
+    background-color: #1C2A33;
+}
+
+.features-item:nth-child(even) {
+    background-color: #18CFAB;
+
+}

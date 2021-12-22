@@ -1,0 +1,59 @@
+.wide-container {
+    width: 100%;
+    min-width: 1160px;
+}
+
+.main-container {
+    width: 1160px;
+}
+
+.section-title-text {
+    color: #4E4E4E;
+
+}
+
+.colored-txt {
+    color: #18CFAB;
+}
+
+.white-txt {
+    color: #fff;
+}
+
+.tab-txt {
+    color: #717171;
+}
+
+.descr-txt {
+    color: #777777;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+.capital {
+    text-transform: capitalize;
+}
+
+.main-btn {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    background: #18CFAB;
+    color: white;
+    width: 165px;
+    height: 60px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 -5px 0 0 white;
+}
+
+.alt-color-btn {
+    background: #00CBF6;
+}
+
