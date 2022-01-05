@@ -1,5 +1,4 @@
 body {
-    background-color: rgb(250, 245, 215);
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -180,24 +179,118 @@ body {
 /* ======================= */
 .features-section {
     display: flex;
-    
-
-}
-
-.features-section div {
-    flex-grow: 1;
 }
 
 .features-item {
+    width: 25%;
     height: 360px;
 
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 103px;
 }
 
 .features-item:nth-child(odd) {
     background-color: #1C2A33;
+    color: #18CFAB;
 }
 
 .features-item:nth-child(even) {
     background-color: #18CFAB;
-
+    color: white;
 }
+
+.feature-icon-wrapper {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-text {
+    margin-top: 47px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+/* OUR SERVICES SECTION */
+
+.services-section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-section-title {
+    margin-top: 90px;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) ;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.services-list-tab {
+    flex:1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    color: #717171;
+    background-color: #F8FCFE;
+    border: 1px solid #EDEFEF;
+    border-right: 1px solid #F8FCFE;
+}
+
+.services-list-tab:last-child {
+    border-right: 1px solid #EDEFEF;
+}
+
+.services-list-tab:hover {
+    border: 2px solid #18CFAB;
+}
+
+.services-list-tab.active {
+    background-color: #18CFAB;
+    color: white;
+    border: none;
+    position: relative;
+}
+.services-list-tab.active::after {
+    content: "";
+    display: block;
+    height: 11px;
+    width: 22px;
+    border-top: 11px solid #18CFAB;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    position: absolute;
+    top: 72px;
+    box-sizing: border-box;
+}
+
+.service-tab-content {
+    display: none;
+}
+
+.service-tab-content.visible {
+    display: initial;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    color: #777777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    align-self: start;
+}
+

@@ -57,3 +57,32 @@
     background: #00CBF6;
 }
 
+.section-title {
+    font-size: 36px;
+    color: #4E4E4E;
+    height: 40px;
+    position: relative;
+    margin-bottom: 98px; /* 30px to ::after element*/ 
+}
+
+.section-title::before {
+    content: "";
+    display: block;
+    width: 76px;
+    height: 1px;
+    background-color: #18CFAB;
+    position: absolute;
+    top: 66px;
+    left: calc((100% - 76px)/2 - 13px);
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 76px;
+    height: 1px;
+    background-color: #18CFAB;
+    position: absolute;
+    top: 70px;
+    left: calc((100% - 76px)/2 + 13px);
+}
