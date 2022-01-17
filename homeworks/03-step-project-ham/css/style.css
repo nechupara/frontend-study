@@ -440,19 +440,19 @@ body {
     font-size: 14px;
     font-weight: 700;
     line-height: 14px;
+    cursor: default;
 }
-
-
 
 .work-img-text-grey {
     color: #8A8A8A;
     font-size: 12px;
     font-weight: 300;
     line-height: 12px;
+    cursor: default;
 }
 
 .work-imgs {
-    margin-top: 71px;
+    margin: 72px auto;
     display: grid;
     gap: 0;
     grid-template-columns: repeat(4, 1fr);
@@ -464,4 +464,224 @@ body {
     position: relative;
     overflow: hidden;
     background-color: inherit;
+}
+
+/* ////////////////////////////////// */
+/* BREAKING NEWS SECTION */
+.news-section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 82px;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 46px 0;
+}
+
+.news-item-link {
+    position: relative;
+    display: block;
+}
+
+.news-item  img{
+    display: block;
+}
+
+.news-date {
+    width: 66px;
+    height: 66px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #203E38;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 13px 0;
+}
+
+.news-date-day, .news-date-month {
+    line-height: 16px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.news-description {
+    width: 100%;
+    height: 72px;
+    display: grid;
+    grid-template-areas: 
+        "name name"
+        "author comments";
+    grid-template-columns: 82px 1fr;
+    grid-template-rows: 1fr 12px;
+    padding: 16px 0 12px 20px;
+}
+
+.news-name {
+    grid-area: name;
+    font-size: 18px;
+    font-weight: 700;
+    color: #717171;
+    margin-bottom: auto;
+}
+
+.news-author {
+    grid-area: author;
+    border-right: 1px solid #777777;
+}
+
+.news-comments {
+    grid-area: comments;
+    padding-left: 16px;
+}
+
+.news-author, .news-comments {
+    color: #777777;
+    font-size: 14px;
+    line-height: 12px;
+    align-self: end;
+}
+
+.news-item:hover .news-date {
+background-color: #18CFAB;
+}
+
+.news-item:hover .news-name {
+    color: #18CFAB;
+}
+
+/* WHAT PEOPLE SAY SECTION */
+/* ///////////////////////////// */
+.people-say-section {
+    height: 853px;
+    background-image: url('../img/sections-background/3-section-bg.jpg');
+    background-position: 50% 66%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 98px 0 100px;
+}
+
+.people-say-section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.people-say-section-title.section-title {
+    color: #fff;
+}
+
+.person-quote-block {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+}
+
+.person-quote {
+    color: #BBBBBB;
+    line-height: 30px;
+    text-align: center;
+    height: 60px;
+}
+
+.person-quote-block::before {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 558px; /* 1160/2 - 22 */
+    background-image: url('../img/symbols/quots.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.person-name {
+   color: #18CFAB; 
+   font-weight: 700;
+   line-height: 12px;
+   margin: auto 0 16px;
+}
+
+.person-job {
+    font-size: 14px;
+    color: #BBBBBB;
+    line-height: 10px;
+    margin-bottom: auto;
+}
+
+.person-photo {
+    width: 146px;
+    height: 146px;
+    box-sizing: content-box;
+    border: 10px solid #1FDAB530;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.person-photo img {
+    width: inherit;
+    height: inherit;
+}
+
+.carousel-wrapper {
+    width: 484px;
+    height: 70px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scroll-arrow {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #BBBBBB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-arrow:hover {
+   background-color: #18CFAB;
+   fill: #fff;
+    border-color: #18CFAB;
+}
+
+.scroll-arrow:hover svg {
+    fill: #fff;
+ }
+
+.carousel-photo {
+    width: 60px;
+    height: 60px;
+    box-sizing: content-box;
+    border: 5px solid #1FDAB530;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.carousel-photo img {
+    width: inherit;
+    height: inherit;
 }

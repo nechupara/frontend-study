@@ -67,11 +67,7 @@ workImages.addEventListener('mouseover', e => {
     }
     currentHoveredElement = hoveredElem;
     if (!hoveredElem.querySelector('.work-img-hover')) {
-        
-        console.log(hoveredElem);
-        console.log(hoveredElem.dataset.workCategory);
         hoveredElem.insertAdjacentHTML('beforeend', makeHoverHTML(hoveredElem.dataset.workCategory));
-
     }
     
 });
@@ -85,9 +81,7 @@ workImages.addEventListener('mouseout', event => {
     const relatedTarget = event.relatedTarget.closest('.work-img-wrapper');
     if (relatedTarget !== null && relatedTarget === currentHoveredElement) return;
     const leftIMG = event.target.closest('.work-img-wrapper')
-    // if (leftIMG.querySelector('.work-img-hover')) {
         leftIMG.querySelector('.work-img-hover').remove();
         currentHoveredElement = null;
-        console.log('leeeeeeee');
     // }
 });

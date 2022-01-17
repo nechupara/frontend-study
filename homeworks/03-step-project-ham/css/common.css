@@ -43,18 +43,47 @@
     border: none;
     border-radius: 5px;
     background: #18CFAB;
-    color: white;
+    color: #fff;
     width: 165px;
     height: 60px;
     cursor: pointer;
     padding: 0;
     position: relative;
     z-index: 2;
-    box-shadow: 0 -5px 0 0 white;
+    box-shadow: 0 -5px 0 0 #fff;
 }
 
 .alt-color-btn {
     background: #00CBF6;
+}
+
+.simple-btn {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    background: #18CFAB;
+    color: white;
+    width: 165px;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 54px;
+    text-align: left;
+}
+
+.simple-btn::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(../img/symbols/plus-sign.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 22px;
+    left: 22px;
 }
 
 .section-title {
