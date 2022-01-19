@@ -16,19 +16,41 @@ servicesTabs.addEventListener("click", (e) => {
 
 // Our Amazing Work
 const filterTabs = document.querySelector('.filter-list');
+const workImages = document.querySelector('.work-imgs');
+
+const doFilteringWorkImages = () => {
+    const filterName = filterTabs.querySelector('.filter-tab.active').dataset.filterName;
+    
+    const workImgItems = workImages.querySelectorAll('.work-img-wrapper')
+    if (filterName === 'all') {
+        workImgItems.forEach(elem => {
+            if (elem.classList.contains('hidden')) {
+                elem.classList.remove('hidden');
+            }
+        })
+    } else {
+        workImgItems.forEach(elem => {
+            const elemWorkCategory = elem.dataset.workCategory;
+            if (elemWorkCategory === filterName && elem.classList.contains('hidden')) {
+                elem.classList.remove('hidden');
+            } else if (elemWorkCategory !== filterName && !elem.classList.contains('hidden')) {
+                elem.classList.add('hidden');
+            }
+        })
+    }
+}
 
 filterTabs.addEventListener('click', e => {
     const clickedFilter = e.target;
     if (!clickedFilter.classList.contains('filter-tab')) return;
+    if (clickedFilter.classList.contains('active')) return;
 
-    if (!clickedFilter.classList.contains('active')) {
-        filterTabs.querySelector('.active').classList.remove('active');
+    filterTabs.querySelector('.active').classList.remove('active');
+    clickedFilter.classList.add('active');
 
-        clickedFilter.classList.add('active');
-    }
+    doFilteringWorkImages();
 
 });
-
 
 const makeHoverHTML = (filterCatgory) => {
     const categoryNames = {
@@ -38,7 +60,7 @@ const makeHoverHTML = (filterCatgory) => {
         'wordpress': 'Wordpress',
     }
 
-    const categoryName = categoryNames[filterCatgory] ? categoryNames[filterCatgory] : 'NA';
+    const categoryName = categoryNames[filterCatgory] ? categoryNames[filterCatgory] : ' ';
     const htmlContent = `
         <div class="work-img-hover">
             <div class="work-img-hover-circles">
@@ -55,8 +77,7 @@ const makeHoverHTML = (filterCatgory) => {
     return htmlContent;
 }
 
-const workImages = document.querySelector('.work-imgs');
-let currentHoveredElement = null; // test
+let currentHoveredElement = null;
 
 workImages.addEventListener('mouseover', e => {
     const hoveredElem = e.target.closest('.work-img-wrapper');
@@ -83,5 +104,75 @@ workImages.addEventListener('mouseout', event => {
     const leftIMG = event.target.closest('.work-img-wrapper')
         leftIMG.querySelector('.work-img-hover').remove();
         currentHoveredElement = null;
-    // }
 });
+
+const workImgsBtn = document.querySelector('#work-imgs-load-btn');
+
+const makeWorkImgHTML = (number, category) => {
+    const categoryAdress = {
+        'graphic-design' : `./img/graphic-design/graphic-design0${number}.jpg`,
+        'web-design' : `./img/web-design/web-design${number}.jpg`,
+        'landing-pages' : `./img/landing-pages/landing-page${number}.jpg`,
+        'wordpress' : `./img/wordpress/wordpress0${number}.jpg`,
+    }
+
+    return `
+        <div class="work-img-wrapper" data-work-category="${category}">
+            <img src="${categoryAdress[category]}" alt="image of work sample">
+        div>
+    `
+}
+
+workImgsBtn.addEventListener('click', e => {
+    workImgsBtn.disabled = true;
+    const spinner = document.querySelector('.lds-spinner');
+    spinner.classList.toggle('hidden');
+    setTimeout(() => {
+        const imgsList = [];
+        const amountExistingImgs =  workImages.querySelectorAll('.work-img-wrapper').length;
+        const startIndex = amountExistingImgs > 12 ? 3 : 0;
+        for (let i = 1; i <= 3; i++ ) {
+            imgsList.push(makeWorkImgHTML(startIndex + i, 'graphic-design'));
+            imgsList.push(makeWorkImgHTML(startIndex + i, 'web-design'));
+            imgsList.push(makeWorkImgHTML(startIndex + i, 'landing-pages'));
+            imgsList.push(makeWorkImgHTML(startIndex + i, 'wordpress'));
+        }
+    
+        for (let i = 0; i < imgsList.length; i++) {
+            const randomIndex = Math.floor(Math.random()*(imgsList.length));
+            const temp = imgsList[i];
+            imgsList[i] = imgsList[randomIndex];
+            imgsList[randomIndex] = temp;
+        }
+        
+        spinner.classList.toggle('hidden');
+    
+        imgsList.forEach(elem => {
+            workImages.insertAdjacentHTML('beforeend', elem);
+        })
+    
+        const filterName = filterTabs.querySelector('.filter-tab.active').dataset.filterName;
+
+        if (filterName !== 'all') {
+            doFilteringWorkImages();
+        }
+
+        workImgsBtn.disabled = false;
+        if (startIndex) {
+            workImgsBtn.remove();
+        }
+    }, 1000);
+})
+
+// WHAT PEOPLE SAY SECTION
+
+const scrollToRightBtn = document.querySelector('#scroll-left-arrow');
+let currentQuote = document.querySelector('.person-quote-block:not(.hidden-to-left, .hidden-to-right)');
+// console.log(currentQuote);
+scrollToRightBtn.addEventListener('click', e => {
+    if (!currentQuote.nextElementSibling) return;
+    currentQuote.classList.add('hidden-to-left')
+    console.log('kkkkk', currentQuote.nextElementSibling);
+    currentQuote = currentQuote.nextElementSibling;
+    currentQuote.classList.remove('hidden-to-right')
+})
