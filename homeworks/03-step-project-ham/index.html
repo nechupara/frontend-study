@@ -348,7 +348,7 @@
             </h2>
 
             <div class="persons-quotes-wrapper main-container">
-                <div class="person-quote-block main-container hidden-to-left">
+                <div class="person-quote-block main-container hidden-to-left" data-person-name='perry'>
                     <p class="person-quote">
                         Swish, swish, bish Another one in the basket Can't touch this Another one in the casket Your game is tired You should retire You're 'bout cute as An old coupon expired And karma's not a liar She keeps receipts So keep calm, honey, I'ma stick around For more than a minute, get used to it
                     </p>
@@ -359,18 +359,18 @@
                     </div>
                 </div>
     
-                <div class="person-quote-block main-container hidden-to-left">
+                <div class="person-quote-block main-container hidden-to-left" data-person-name='arnie'>
                     <p class="person-quote">
                         Hasta la vista, baby. I knew I was a winner back in the late sixties. I knew I was destined for great things. People will say that kind of thinking is totally immodest. I agree. Modesty is not a word that applies to me in any way – I hope it never will.
                     </p>
                     <p class="person-name upper">Iron Arnie</p>
                     <p class="person-job">Assembly Developer</p>
                     <div class="person-photo">
-                        <img src="./img/06-people-say/02-iron-arnie.jpg" alt="Katy Perry photo">
+                        <img src="./img/06-people-say/02-iron-arnie.jpg" alt="Iron Arnie photo">
                     </div>
                 </div>
     
-                <div class="person-quote-block main-container">
+                <div class="person-quote-block main-container" data-person-name='bean'>
                     <p class="person-quote">
                         I think I have an inner confidence that my tastes are pretty simple, that what I find funny finds a
                         wide audience. I’m not particularly intellectual or clever or minority-focused in my creative
@@ -383,7 +383,7 @@
                     </div>
                 </div>
     
-                <div class="person-quote-block main-container hidden-to-right">
+                <div class="person-quote-block main-container hidden-to-right" data-person-name='portman'>
                     <p class="person-quote">
                         I think it's a great honor to win an Oscar but I think if you aim to be rewarded in your life you'll
                         get nowhere. I think that the biggest reward is the work itself and what you get out of it and the
@@ -392,42 +392,55 @@
                     <p class="person-name upper">Natalie Portman</p>
                     <p class="person-job">Backend developer</p>
                     <div class="person-photo">
-                        <img src="./img/06-people-say/04-natalie-portman.jpg" alt="Katy Perry photo">
+                        <img src="./img/06-people-say/04-natalie-portman.jpg" alt="Natalie Portman photo">
                     </div>
                 </div>
     
-                <div class="person-quote-block main-container hidden-to-right">
+                <div class="person-quote-block main-container hidden-to-right" data-person-name='tyson'>
                     <p class="person-quote">
                         Time to get cosmic. There are more stars in the universe than grains of sand on any beach, more stars than seconds have passed since Earth formed, more stars than words and sounds ever uttered by all the humans who ever lived.
                     </p>
                     <p class="person-name upper">Neil Degrasse Tyson</p>
                     <p class="person-job">Design architect</p>
                     <div class="person-photo">
-                        <img src="./img/06-people-say/05-neil-tyson.jpg" alt="Katy Perry photo">
+                        <img src="./img/06-people-say/05-neil-tyson.jpg" alt="Neil Degrasse Tyson photo">
                     </div>
                 </div>
 
             </div>
 
-            <div id="scroll-left-arrow" class="carousel-wrapper">
-                <div class="scroll-arrow">
+            <div  class="carousel-wrapper">
+                <button id="scroll-left-arrow" class="scroll-arrow">
                     <svg width="8" height="13" viewBox="0 0 8 13" fill="#BBBBBB" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M6.50764 12.5076L7.81261 11.1056L3.52463 6.49631L7.81261 1.88987L6.50764 0.486695L0.91457 6.49631L6.50764 12.5076Z" />
                     </svg>
-                </div>
-                <div class="carousel-photo"><img src="./img/06-people-say/01-katy-perry.jpg" alt=""></div>
-                <div class="carousel-photo"><img src="./img/06-people-say/02-iron-arnie.jpg" alt=""></div>
-                <div class="carousel-photo"><img src="./img/06-people-say/03-mr-bean.jpg" alt=""></div>
-                <div class="carousel-photo"><img src="./img/06-people-say/04-natalie-portman.jpg" alt=""></div>
-                <div class="carousel-photo"><img src="./img/06-people-say/05-neil-tyson.jpg" alt=""></div>
+                </button>
 
-                <div id="scroll-right-arrow" class="scroll-arrow">
+                <div class="carousel-photo-wrapper">
+                    <div class="carousel-photo" data-person-name='perry'>
+                        <img src="./img/06-people-say/01-katy-perry.jpg" alt="">
+                    </div>
+                    <div class="carousel-photo" data-person-name='arnie'>
+                        <img src="./img/06-people-say/02-iron-arnie.jpg" alt="">
+                    </div>
+                    <div class="carousel-photo active" data-person-name='bean'>
+                        <img src="./img/06-people-say/03-mr-bean.jpg" alt="">
+                    </div>
+                    <div class="carousel-photo" data-person-name='portman'>
+                        <img src="./img/06-people-say/04-natalie-portman.jpg" alt="">
+                    </div>
+                    <div class="carousel-photo" data-person-name='tyson'>
+                        <img src="./img/06-people-say/05-neil-tyson.jpg" alt="">
+                    </div>
+                </div>
+
+                <button id="scroll-right-arrow" class="scroll-arrow">
                     <svg width="8" height="13" viewBox="0 0 8 13" fill="#BBBBBB" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M1.49213 0.48752L0.18704 1.88987L4.47503 6.49714L0.18704 11.1056L1.49213 12.5084L7.08508 6.49714L1.49213 0.48752Z" />
                     </svg>
-                </div>
+                </button>
             </div>
         </div>
 

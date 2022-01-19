@@ -12,6 +12,7 @@ body {
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -702,7 +703,7 @@ body {
 }
 
 .person-quote-block.hidden-to-left {
-    left: -1160px;
+    left: -1165px;
 }
 
 .person-quote-block.hidden-to-right {
@@ -767,6 +768,7 @@ body {
 }
 
 .scroll-arrow {
+    background: none;
     width: 32px;
     height: 32px;
     border: 1px solid #bbbbbb;
@@ -785,6 +787,11 @@ body {
     fill: #fff;
 }
 
+.carousel-photo-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
 .carousel-photo {
     width: 60px;
     height: 60px;
@@ -792,6 +799,13 @@ body {
     border: 5px solid #1fdab530;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: 0;
+    transition-property: margin-top;
+    transition-duration: 0.5s;
+}
+
+.carousel-photo.active {
+    margin-top: -20px;
 }
 
 .carousel-photo img {

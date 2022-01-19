@@ -166,13 +166,76 @@ workImgsBtn.addEventListener('click', e => {
 
 // WHAT PEOPLE SAY SECTION
 
-const scrollToRightBtn = document.querySelector('#scroll-left-arrow');
-let currentQuote = document.querySelector('.person-quote-block:not(.hidden-to-left, .hidden-to-right)');
-// console.log(currentQuote);
+const scrollToRightBtn = document.querySelector('#scroll-right-arrow');
+const scrollToLeftBtn = document.querySelector('#scroll-left-arrow');
+const smallPhotosBlock = document.querySelector('.carousel-photo-wrapper');
+const quotesWrapper = document.querySelector('.persons-quotes-wrapper');
+let currentQuoteBlock = quotesWrapper.querySelector('.person-quote-block:not(.hidden-to-left, .hidden-to-right)');
+let currentCarouselPhoto = document.querySelector('.carousel-photo.active');
+
 scrollToRightBtn.addEventListener('click', e => {
-    if (!currentQuote.nextElementSibling) return;
-    currentQuote.classList.add('hidden-to-left')
-    console.log('kkkkk', currentQuote.nextElementSibling);
-    currentQuote = currentQuote.nextElementSibling;
-    currentQuote.classList.remove('hidden-to-right')
+    if (!currentQuoteBlock.nextElementSibling) return;
+    currentQuoteBlock.classList.add('hidden-to-left');
+    currentQuoteBlock = currentQuoteBlock.nextElementSibling;
+    currentQuoteBlock.style.zIndex = '1';
+    currentQuoteBlock.classList.remove('hidden-to-right');
+
+    currentCarouselPhoto.classList.remove('active');
+    currentCarouselPhoto = currentCarouselPhoto.nextElementSibling;
+    currentCarouselPhoto.classList.add('active');
+});
+
+scrollToLeftBtn.addEventListener('click', e => {
+    if (!currentQuoteBlock.previousElementSibling) return;
+    currentQuoteBlock.classList.add('hidden-to-right');
+    currentQuoteBlock = currentQuoteBlock.previousElementSibling;
+    currentQuoteBlock.style.zIndex = '1';
+    currentQuoteBlock.classList.remove('hidden-to-left');
+
+    currentCarouselPhoto.classList.remove('active');
+    currentCarouselPhoto = currentCarouselPhoto.previousElementSibling;
+    currentCarouselPhoto.classList.add('active');
+});
+
+smallPhotosBlock.addEventListener('click', e => {
+    if( !(e.target.tagName === "IMG" || e.target.classList.contains('carousel-photo')) ) {
+        return;
+    }
+
+    const target = e.target.closest('.carousel-photo');
+
+    if (target.classList.contains('active')) return;
+
+    const personName = target.dataset.personName;
+    currentCarouselPhoto.classList.remove('active');
+    target.classList.add('active');
+    currentCarouselPhoto = target;
+    
+    const quoteBlockToShow = quotesWrapper.querySelector(`.person-quote-block[data-person-name=${personName}]`);
+    if (quoteBlockToShow.classList.contains('hidden-to-left')) {
+
+        currentQuoteBlock.classList.add('hidden-to-right');
+        let tempElem = currentQuoteBlock.previousElementSibling;
+        while(tempElem !== quoteBlockToShow) {
+            tempElem.style.zIndex = '-1';
+            tempElem.classList.remove('hidden-to-left');
+            tempElem.classList.add('hidden-to-right');
+            tempElem = tempElem.previousElementSibling;
+        }
+        quoteBlockToShow.style.zIndex = '1';
+        quoteBlockToShow.classList.remove('hidden-to-left');
+    } else {
+
+        currentQuoteBlock.classList.add('hidden-to-left');
+        let tempElem = currentQuoteBlock.nextElementSibling;
+        while(tempElem !== quoteBlockToShow) {
+            tempElem.style.zIndex = '-1';
+            tempElem.classList.remove('hidden-to-right');
+            tempElem.classList.add('hidden-to-left');
+            tempElem = tempElem.nextElementSibling;
+        }
+        quoteBlockToShow.style.zIndex = '1';
+        quoteBlockToShow.classList.remove('hidden-to-right');
+    }
+    currentQuoteBlock = quoteBlockToShow;
 })
