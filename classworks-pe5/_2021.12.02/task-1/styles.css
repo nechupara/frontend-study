@@ -1,0 +1,36 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+:root {
+  --color1: #161619;
+  --color2: #ffffff;
+  --color3: orange;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  color: var(--color1);
+  background-color: var(--color2);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+}
+
+a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: var(--color1);
+  text-decoration: none;
+  color: var(--color2);
+}
+
+a.active {
+  background-color: var(--color3);
+  color: var(--color1);
+}
