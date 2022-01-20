@@ -16,17 +16,40 @@ document.querySelectorAll('.news-item-link').forEach(elem => {
 ///////////////////////////////////////////////////////////////////////////
 
 
-window.onload = () => {
-    const masonryElement = document.querySelector('.best-imgs-wrapper');
-    const masonry = new Masonry(masonryElement, {
-        itemSelector: '.best-img-item',
-        // columnWidth: 114,
-        fitWidth: true,
-        // initLayout: false,
-        // percentPosition: true
-        // gutter: 20 ,
-    })
-}
+// window.onload = () => {
+//     const masonryMain = document.querySelector('.best-imgs-wrapper');
+//     const masonry = new Masonry(masonryMain, {
+//         itemSelector: '.best-img-item',
+//         columnWidth: 372,
+//         // fitWidth: true,
+//         // initLayout: false,
+//         // percentPosition: true
+//         gutter: 22 ,
+//     })
+// }
+
+const masonryMainElem = document.querySelector('.best-imgs-wrapper');
+const masonryInnerElem = masonryMainElem.querySelector('.inner-img-grid');
+
+const masonryMain = new Masonry(masonryMainElem, {
+    itemSelector: '.best-img-item',
+    columnWidth: 372,
+    // fitWidth: true,
+    // initLayout: false,
+    // percentPosition: true
+    gutter: 22 ,
+})
+
+// const masonryInner = new Masonry(masonryInnerElem, {
+//     itemSelector: '.inner-img-grid-item',
+//     columnWidth: 62,
+//     // fitWidth: true,
+//     // initLayout: false,
+//     // percentPosition: true
+//     // gutter: 3 ,
+// })
+
+
 
 
 // masonry.imagesLoaded().progress( function() {
