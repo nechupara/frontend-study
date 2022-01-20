@@ -821,6 +821,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 70px;
 }
 
 .best-imgs-section-title {
@@ -859,11 +860,6 @@ body {
 .inner-img-grid-item img {
     display: block;
 }
-
-.inner-img-grid-item  {
-    /* margin-bottom: 7px; */
-}
-
 
 /* FOOTER SECTION */
 
