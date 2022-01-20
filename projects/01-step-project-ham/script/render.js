@@ -9,8 +9,32 @@ const newsDescriptionHTML = `
         <p class="news-comments">2 comment</p>
     </div>
 `;
-
 document.querySelectorAll('.news-item-link').forEach(elem => {
     elem.insertAdjacentHTML('beforeend', newsDescriptionHTML);
 })
 
+///////////////////////////////////////////////////////////////////////////
+
+
+window.onload = () => {
+    const masonryElement = document.querySelector('.best-imgs-wrapper');
+    const masonry = new Masonry(masonryElement, {
+        itemSelector: '.best-img-item',
+        // columnWidth: 114,
+        fitWidth: true,
+        // initLayout: false,
+        // percentPosition: true
+        // gutter: 20 ,
+    })
+}
+
+
+// masonry.imagesLoaded().progress( function() {
+//     masonry.masonry('layout');
+//   });
+
+
+//   imagesLoaded( masonryElement ).on( 'progress', function() {
+//     // layout Masonry after each image loads
+//     masonry.layout();
+//   });
