@@ -835,11 +835,7 @@ body {
 
 .best-img-item {
     width: 372px;
-    /* margin-bottom: 22px; */
-}
-
-.best-img-item.hidden {
-    display: none;
+    margin-bottom: 22px;
 }
 
 .best-img-item img {

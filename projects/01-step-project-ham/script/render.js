@@ -16,9 +16,6 @@ document.querySelectorAll(".news-item-link").forEach((elem) => {
 ///////////////////////////////////////////////////////////////////////////
 
 const masonryMainElem = document.querySelector(".best-imgs-wrapper");
-// const gridElements = masonryMainElem.querySelectorAll(".best-img-item");
-
-// let masonryMain = null;
 
 const masonryMain = new Masonry(masonryMainElem, {
     itemSelector: ".best-img-item",
@@ -28,20 +25,4 @@ const masonryMain = new Masonry(masonryMainElem, {
 
 window.onload = () => {
     masonryMain.layout();
-
-
-    // imagesLoaded(masonryMainElem).on("progress", function () {
-    //     // layout Masonry after each image loads
-    //     masonryMain.appended(gridElements);
-    //     masonryMain.layout();
-    // });
-
-    // masonryMain.appended(gridElements);
-    // masonryMain.layout();
 };
-
-// imagesLoaded( masonryMainElem ).on( 'progress', function() {
-//     // layout Masonry after each image loads
-//     masonryMain.appended(gridElements);
-//     masonryMain.layout();
-// });
