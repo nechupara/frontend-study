@@ -304,18 +304,15 @@ loadGalleryBtn.addEventListener('click', e => {
 
     setTimeout(() => {
         elemsArr.forEach(elem => {
-            elem.style.height = 'auto';
-        })
+            elem.style.height = '';
+        });
 
         masonryMain.appended(elemsArr);
-        masonryMain.layout();
-
-        // вместо display: none использовал height: 0, поэтому проблем с загрузкой картинок не было
-        // поэтому imagesloaded не нужен по сути
-        // imagesLoaded( galleryImgs ).on( 'progress', function() {
-        //     // layout Masonry after each image loads
-        //     masonryMain.layout();
-        //   });
+        
+        imagesLoaded( elemsArr ).on( 'progress', function() {
+            // layout Masonry after each image loads
+            masonryMain.layout();
+        });
 
           if (startIndex) {
               loadGalleryBtn.remove();
