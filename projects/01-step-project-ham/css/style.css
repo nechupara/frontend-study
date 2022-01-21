@@ -398,7 +398,7 @@ body {
     padding-top: 43px;
     padding-bottom: 48px;
     position: absolute;
-    top: 0;
+    top: 206px;
     left: 0;
 }
 
@@ -465,7 +465,13 @@ body {
     position: relative;
     overflow: hidden;
     background-color: inherit;
+    overflow: hidden;
 }
+
+.work-img-wrapper:hover .work-img-hover {
+    top: 0;
+}
+
 
 .work-img-wrapper img {
     display: block;

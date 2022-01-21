@@ -90,33 +90,41 @@ const makeHoverHTML = (filterCatgory) => {
     return htmlContent;
 };
 
-let currentHoveredElement = null;
-
-workImages.addEventListener("mouseover", (e) => {
-    const hoveredElem = e.target.closest(".work-img-wrapper");
-
-    if (currentHoveredElement === hoveredElem) return;
-    if (currentHoveredElement && currentHoveredElement !== hoveredElem) {
-        currentHoveredElement.querySelector(".work-img-hover").remove();
-    }
-    currentHoveredElement = hoveredElem;
-    if (!hoveredElem.querySelector(".work-img-hover")) {
-        hoveredElem.insertAdjacentHTML("beforeend", makeHoverHTML(hoveredElem.dataset.workCategory));
-    }
+workImages.querySelectorAll('.work-img-wrapper').forEach(elem => {
+    const filterCategory = elem.dataset.workCategory;
+    elem.insertAdjacentHTML('beforeend', makeHoverHTML(filterCategory));
 });
 
-workImages.addEventListener("mouseout", (event) => {
-    if (event.relatedTarget === null && currentHoveredElement) {
-        currentHoveredElement.querySelector(".work-img-hover").remove();
-        currentHoveredElement = null;
-        return;
-    }
-    const relatedTarget = event.relatedTarget.closest(".work-img-wrapper");
-    if (relatedTarget !== null && relatedTarget === currentHoveredElement) return;
-    const leftIMG = event.target.closest(".work-img-wrapper");
-    leftIMG.querySelector(".work-img-hover").remove();
-    currentHoveredElement = null;
-});
+// первоначальный вариант с генерацией всплывающего элемента при событиях mouseover
+// и mouseout. Заменил на более быстрое и простое решение с обычным добавлением
+// всплывающего элемента и стилями CSS на hover
+// let currentHoveredElement = null;
+
+// workImages.addEventListener("mouseover", (e) => {
+//     const hoveredElem = e.target.closest(".work-img-wrapper");
+
+//     if (currentHoveredElement === hoveredElem) return;
+//     if (currentHoveredElement && currentHoveredElement !== hoveredElem) {
+//         currentHoveredElement.querySelector(".work-img-hover").remove();
+//     }
+//     currentHoveredElement = hoveredElem;
+//     if (!hoveredElem.querySelector(".work-img-hover")) {
+//         hoveredElem.insertAdjacentHTML("beforeend", makeHoverHTML(hoveredElem.dataset.workCategory));
+//     }
+// });
+
+// workImages.addEventListener("mouseout", (event) => {
+//     if (event.relatedTarget === null && currentHoveredElement) {
+//         currentHoveredElement.querySelector(".work-img-hover").remove();
+//         currentHoveredElement = null;
+//         return;
+//     }
+//     const relatedTarget = event.relatedTarget.closest(".work-img-wrapper");
+//     if (relatedTarget !== null && relatedTarget === currentHoveredElement) return;
+//     const leftIMG = event.target.closest(".work-img-wrapper");
+//     leftIMG.querySelector(".work-img-hover").remove();
+//     currentHoveredElement = null;
+// });
 
 const loadMoreWorkImgsBtn = document.querySelector("#work-imgs-load-btn");
 
@@ -133,6 +141,8 @@ const createWorkImgELEM = (number, category) => {
     elem.innerHTML = `<img src="${categoryAdress[category]}" alt="image of work sample">`;
     elem.style.height = '0';
     elem.style.overflow = 'hidden';
+
+    elem.insertAdjacentHTML('beforeend', makeHoverHTML(category));
     
     return elem;
 };
@@ -300,6 +310,8 @@ loadGalleryBtn.addEventListener('click', e => {
         masonryMain.appended(elemsArr);
         masonryMain.layout();
 
+        // вместо display: none использовал height: 0, поэтому проблем с загрузкой картинок не было
+        // поэтому imagesloaded не нужен по сути
         // imagesLoaded( galleryImgs ).on( 'progress', function() {
         //     // layout Masonry after each image loads
         //     masonryMain.layout();
