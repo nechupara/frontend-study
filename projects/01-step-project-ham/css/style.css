@@ -261,13 +261,6 @@ body {
     z-index: 5;
 }
 
-.services-list-tab.active {
-    background-color: #18cfab;
-    outline: 1px solid #18cfab;
-    color: white;
-    border: transparent;
-    position: relative;
-}
 .services-list-tab.active::after {
     content: "";
     display: block;
@@ -279,6 +272,14 @@ body {
     position: absolute;
     top: 71px;
     box-sizing: border-box;
+}
+
+.services-list-tab.active {
+    background-color: #18cfab;
+    outline: 1px solid #18cfab;
+    color: white;
+    border: transparent;
+    position: relative;
 }
 
 .service-tab-article {
@@ -471,7 +472,6 @@ body {
 .work-img-wrapper:hover .work-img-hover {
     top: 0;
 }
-
 
 .work-img-wrapper img {
     display: block;
@@ -852,7 +852,7 @@ body {
 .inner-img-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px 0;
+    gap: 3px 0;
     justify-content: space-between;
 }
 

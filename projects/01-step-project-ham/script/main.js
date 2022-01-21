@@ -1,3 +1,4 @@
+// OUR SERVICES
 const servicesTabs = document.querySelector(".services-list");
 
 servicesTabs.addEventListener("click", (e) => {
@@ -323,7 +324,5 @@ loadGalleryBtn.addEventListener('click', e => {
           spinner.classList.add('hidden');
 
     }, 2000)
-    
-
 })
 
