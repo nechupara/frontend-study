@@ -9,17 +9,39 @@ const newsDescriptionHTML = `
         <p class="news-comments">2 comment</p>
     </div>
 `;
-document.querySelectorAll('.news-item-link').forEach(elem => {
-    elem.insertAdjacentHTML('beforeend', newsDescriptionHTML);
-})
+document.querySelectorAll(".news-item-link").forEach((elem) => {
+    elem.insertAdjacentHTML("beforeend", newsDescriptionHTML);
+});
 
 ///////////////////////////////////////////////////////////////////////////
 
-const masonryMainElem = document.querySelector('.best-imgs-wrapper');
+const masonryMainElem = document.querySelector(".best-imgs-wrapper");
+// const gridElements = masonryMainElem.querySelectorAll(".best-img-item");
+
+// let masonryMain = null;
 
 const masonryMain = new Masonry(masonryMainElem, {
-    itemSelector: '.best-img-item',
+    itemSelector: ".best-img-item",
     columnWidth: 372,
-    gutter: 22 ,
-})
+    gutter: 22,
+});
 
+window.onload = () => {
+    masonryMain.layout();
+
+
+    // imagesLoaded(masonryMainElem).on("progress", function () {
+    //     // layout Masonry after each image loads
+    //     masonryMain.appended(gridElements);
+    //     masonryMain.layout();
+    // });
+
+    // masonryMain.appended(gridElements);
+    // masonryMain.layout();
+};
+
+// imagesLoaded( masonryMainElem ).on( 'progress', function() {
+//     // layout Masonry after each image loads
+//     masonryMain.appended(gridElements);
+//     masonryMain.layout();
+// });

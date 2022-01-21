@@ -269,20 +269,28 @@ loadGalleryBtn.addEventListener('click', e => {
         const imgElem = document.createElement('div');
         imgElem.innerHTML = `<img src="./img/07-best-images/additional-imgs/${startIndex + i}-photo.jpg"
                                 alt="photo sample">`
-        imgElem.classList.add(...['best-img-item', 'hidden']);
+        imgElem.classList.add('best-img-item');
+        imgElem.style.height = '0';
+        imgElem.style.overflow = 'hidden';
         elemsArr.push(imgElem);
-        galleryImgs.insertAdjacentElement('beforeend', imgElem);
-        
     }
+
+    elemsArr.forEach(elem => {
+        galleryImgs.insertAdjacentElement('beforeend', elem);
+    })
+
     setTimeout(() => {
-        galleryImgs.querySelectorAll('.best-img-item.hidden').forEach(elem => {
-            elem.classList.remove('hidden')
+        elemsArr.forEach(elem => {
+            elem.style.height = 'auto';
         })
+
         masonryMain.appended(elemsArr);
-        imagesLoaded( galleryImgs ).on( 'progress', function() {
-            // layout Masonry after each image loads
-            masonryMain.layout();
-          });
+        masonryMain.layout();
+
+        // imagesLoaded( galleryImgs ).on( 'progress', function() {
+        //     // layout Masonry after each image loads
+        //     masonryMain.layout();
+        //   });
 
           if (startIndex) {
               loadGalleryBtn.remove();

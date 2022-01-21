@@ -835,7 +835,7 @@ body {
 
 .best-img-item {
     width: 372px;
-    margin-bottom: 22px;
+    /* margin-bottom: 22px; */
 }
 
 .best-img-item.hidden {
@@ -848,11 +848,11 @@ body {
 }
 
 /* //masonry */
-/* .best-img-item:after {
+.best-img-item:after {
     content: '';
     display: block;
     clear: both;
-  } */
+  }
 
 .inner-img-grid {
     display: flex;
