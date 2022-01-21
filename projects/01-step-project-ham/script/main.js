@@ -120,49 +120,60 @@ workImages.addEventListener("mouseout", (event) => {
 
 const loadMoreWorkImgsBtn = document.querySelector("#work-imgs-load-btn");
 
-const makeWorkImgHTML = (number, category) => {
+const createWorkImgELEM = (number, category) => {
+    const elem = document.createElement('div');
+    elem.dataset.workCategory = category;
+    elem.classList.add('work-img-wrapper');
     const categoryAdress = {
         "graphic-design": `./img/graphic-design/graphic-design0${number}.jpg`,
         "web-design": `./img/web-design/web-design${number}.jpg`,
         "landing-pages": `./img/landing-pages/landing-page${number}.jpg`,
-        wordpress: `./img/wordpress/wordpress0${number}.jpg`,
+        "wordpress": `./img/wordpress/wordpress0${number}.jpg`,
     };
+    elem.innerHTML = `<img src="${categoryAdress[category]}" alt="image of work sample">`;
+    elem.style.height = '0';
+    elem.style.overflow = 'hidden';
+    
+    return elem;
+};
 
-    return `
-        <div class="work-img-wrapper" data-work-category="${category}">
-            <img src="${categoryAdress[category]}" alt="image of work sample">
-        div>
-    `;
+const shuffleArray = array => {
+    for (let i = 0; i < array.length; i++) {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        const temp = array[i];
+        array[i] = array[randomIndex];
+        array[randomIndex] = temp;
+    }
 };
 
 loadMoreWorkImgsBtn.addEventListener("click", (e) => {
     loadMoreWorkImgsBtn.disabled = true;
     const spinner = document.querySelector("#amazing-works-section-spinner");
     spinner.classList.toggle("hidden");
+        
+    const imgsList = [];
+    const amountExistingImgs = workImages.querySelectorAll(".work-img-wrapper").length;
+    const startIndex = amountExistingImgs > 12 ? 3 : 0;
+    for (let i = 1; i <= 3; i++) {
+        imgsList.push(createWorkImgELEM(startIndex + i, "graphic-design"));
+        imgsList.push(createWorkImgELEM(startIndex + i, "web-design"));
+        imgsList.push(createWorkImgELEM(startIndex + i, "landing-pages"));
+        imgsList.push(createWorkImgELEM(startIndex + i, "wordpress"));
+    }
+
+    shuffleArray(imgsList);
+
+    imgsList.forEach((elem) => {
+        workImages.insertAdjacentElement ("beforeend", elem);
+    });
+
     setTimeout(() => {
-        const imgsList = [];
-        const amountExistingImgs = workImages.querySelectorAll(".work-img-wrapper").length;
-        const startIndex = amountExistingImgs > 12 ? 3 : 0;
-        for (let i = 1; i <= 3; i++) {
-            imgsList.push(makeWorkImgHTML(startIndex + i, "graphic-design"));
-            imgsList.push(makeWorkImgHTML(startIndex + i, "web-design"));
-            imgsList.push(makeWorkImgHTML(startIndex + i, "landing-pages"));
-            imgsList.push(makeWorkImgHTML(startIndex + i, "wordpress"));
-        }
-
-        for (let i = 0; i < imgsList.length; i++) {
-            const randomIndex = Math.floor(Math.random() * imgsList.length);
-            const temp = imgsList[i];
-            imgsList[i] = imgsList[randomIndex];
-            imgsList[randomIndex] = temp;
-        }
-
         spinner.classList.toggle("hidden");
 
-        imgsList.forEach((elem) => {
-            workImages.insertAdjacentHTML("beforeend", elem);
+        imgsList.forEach(elem => {
+            elem.style.height = '';
         });
-
+        
         const filterName = filterTabs.querySelector(".filter-tab.active").dataset.filterName;
 
         if (filterName !== "all") {
@@ -274,6 +285,8 @@ loadGalleryBtn.addEventListener('click', e => {
         imgElem.style.overflow = 'hidden';
         elemsArr.push(imgElem);
     }
+
+    shuffleArray(elemsArr);
 
     elemsArr.forEach(elem => {
         galleryImgs.insertAdjacentElement('beforeend', elem);
