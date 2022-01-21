@@ -843,13 +843,6 @@ body {
     width: 100%;
 }
 
-/* //masonry */
-.best-img-item:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
 .inner-img-grid {
     display: flex;
     flex-wrap: wrap;
