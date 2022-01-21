@@ -23,6 +23,8 @@ const masonryMain = new Masonry(masonryMainElem, {
     gutter: 22,
 });
 
-window.onload = () => {
+
+imagesLoaded( masonryMainElem ).on( 'progress', function() {
+    // layout Masonry after each image loads
     masonryMain.layout();
-};
+});
