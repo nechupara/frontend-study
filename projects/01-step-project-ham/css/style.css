@@ -830,12 +830,16 @@ body {
 
 .best-imgs-wrapper {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 52px;
 }
 
 .best-img-item {
     width: 372px;
     margin-bottom: 22px;
+}
+
+.best-img-item.hidden {
+    display: none;
 }
 
 .best-img-item img {
@@ -860,6 +864,7 @@ body {
 .inner-img-grid-item img {
     display: block;
 }
+
 
 /* FOOTER SECTION */
 
@@ -896,3 +901,5 @@ body {
 .footer-rights-reserved {
     padding-left: 6px;
 }
+
+

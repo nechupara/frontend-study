@@ -137,7 +137,7 @@ const makeWorkImgHTML = (number, category) => {
 
 loadMoreWorkImgsBtn.addEventListener("click", (e) => {
     loadMoreWorkImgsBtn.disabled = true;
-    const spinner = document.querySelector(".lds-spinner");
+    const spinner = document.querySelector("#amazing-works-section-spinner");
     spinner.classList.toggle("hidden");
     setTimeout(() => {
         const imgsList = [];
@@ -249,3 +249,51 @@ smallPhotosBlock.addEventListener("click", (e) => {
     }
     currentQuoteBlock = quoteBlockToShow;
 });
+
+
+// GALLERY OF BEST IMAGES
+const loadGalleryBtn = document.querySelector('#gallery-load-btn');
+const galleryImgs = document.querySelector('.best-imgs-wrapper');
+
+
+loadGalleryBtn.addEventListener('click', e => {
+    loadGalleryBtn.disabled = true;
+    const spinner = document.querySelector('#gallery-section-spinner');
+    spinner.classList.remove('hidden');
+
+    const amountPictures = galleryImgs.querySelectorAll('.best-img-item').length;
+    const startIndex = amountPictures > 8 ? 12 : 0;
+    const elemsArr = [];
+
+    for (let i = 1; i <= 12; i++) {
+        const imgElem = document.createElement('div');
+        imgElem.innerHTML = `<img src="./img/07-best-images/additional-imgs/${startIndex + i}-photo.jpg"
+                                alt="photo sample">`
+        imgElem.classList.add(...['best-img-item', 'hidden']);
+        elemsArr.push(imgElem);
+        galleryImgs.insertAdjacentElement('beforeend', imgElem);
+        
+    }
+    setTimeout(() => {
+        galleryImgs.querySelectorAll('.best-img-item.hidden').forEach(elem => {
+            elem.classList.remove('hidden')
+        })
+        masonryMain.appended(elemsArr);
+        imagesLoaded( galleryImgs ).on( 'progress', function() {
+            // layout Masonry after each image loads
+            masonryMain.layout();
+          });
+
+          if (startIndex) {
+              loadGalleryBtn.remove();
+          } else {
+              loadGalleryBtn.disabled = false;
+          }
+          
+          spinner.classList.add('hidden');
+
+    }, 2000)
+    
+
+})
+
