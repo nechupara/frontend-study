@@ -1,0 +1,9 @@
+.title {
+    font-size: 3rem;
+}
+section {
+    background-color: pink;
+}
+* {
+    margin: 0;
+}

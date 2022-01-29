@@ -1,0 +1,1 @@
+console.log("api"),console.log("hero"),console.log("main");const calc=()=>4,res=calc();console.log("✌ ===> res",res);

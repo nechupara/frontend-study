@@ -1,0 +1,1 @@
+console.log("main");const calc=()=>4,res=calc();console.log("🚀 ==== > res",res);

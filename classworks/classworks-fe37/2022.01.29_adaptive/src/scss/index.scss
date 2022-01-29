@@ -1,0 +1,16 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+
+
+body {
+    font-size: 16px;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+@import './sections/main.scss';

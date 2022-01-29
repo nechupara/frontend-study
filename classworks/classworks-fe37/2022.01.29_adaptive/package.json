@@ -1,0 +1,27 @@
+{
+	"name": "taskmanager",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"start": "gulp",
+		"dev": "gulp dev",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"repository": "https://gitlab.com/dan-it/groups/pe41/-/tree/master/advanced-html-css/homework/homework-1-npm",
+	"devDependencies": {
+		"browser-sync": "^2.27.7",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-imagemin": "^8.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-uglify": "^3.0.2",
+		"sass": "^1.49.0"
+	}
+}
