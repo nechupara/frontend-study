@@ -42,7 +42,7 @@
    - gulp-clean +
    - gulp-concat +
    - gulp-imagemin +
-   - gulp-autoprefixer +
+   - gulp-autoprefixer + gulp-notify
 
 #### Литература:
 - [Gulp 4.0](https://andreyolegovich.ru/IT/gulp/)
