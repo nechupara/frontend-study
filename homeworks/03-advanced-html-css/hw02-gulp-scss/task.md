@@ -33,16 +33,16 @@
    - Запуск сервера и последующее отслеживание изменений `*.js` и `*.scss` файлов в папке `src`;
    - При изменении - пересборка и копирование объединенных и минифицированных файлов `styles.min.css` и `scripts.min.js` в папку `dist`, перезагрузка вашей html-страницы.
  - При сборке проекта можно использовать любые `npm` пакеты, но большинство нужного функционала вы найдете в следующих:
-   - gulp
-   - gulp-sass
-   - browser-sync
-   - gulp-js-minify
-   - gulp-uglify
-   - gulp-clean-css
-   - gulp-clean
-   - gulp-concat
-   - gulp-imagemin
-   - gulp-autoprefixer
+   - gulp +
+   - gulp-sass +
+   - browser-sync +
+   - gulp-js-minify +
+   - gulp-uglify +
+   - gulp-clean-css +
+   - gulp-clean +
+   - gulp-concat +
+   - gulp-imagemin +
+   - gulp-autoprefixer +
 
 #### Литература:
 - [Gulp 4.0](https://andreyolegovich.ru/IT/gulp/)
