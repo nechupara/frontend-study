@@ -9,7 +9,7 @@ const path = {
     },
 
     dist: {
-        self: "./dist",
+        self: "./dist/",
         css: "./dist/css/",
         js: "./dist/js/",
         img: "./dist/img/",
@@ -18,4 +18,7 @@ const path = {
 
 const sass = require("gulp-sass")(require("sass"));
 
-module.exports = { ...gulp, sass };
+module.exports = {path, ...gulp, sass };
+
+
+
