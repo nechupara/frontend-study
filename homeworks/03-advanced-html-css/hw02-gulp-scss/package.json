@@ -19,11 +19,12 @@
   "private": "true",
   "devDependencies": {
     "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
     "gulp-imagemin": "^8.0.0",
     "gulp-js-minify": "^0.0.3",
     "gulp-sass": "^5.1.0",

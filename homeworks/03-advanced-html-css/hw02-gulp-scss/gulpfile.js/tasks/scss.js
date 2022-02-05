@@ -1,7 +1,8 @@
-const $ = require('../config/config');
+const _ = require('../config/config');
 
-module.exports = () => {
-    return $.src(`${$.path.src.scss}*.scss`)
-            .pipe($.sass().on('error', $.sass.logError))
-            .pipe($.dest( `${$.path.dist.css}`));
+module.exports = async () => {
+    return _.src(`${_.path.src.scss}*.scss`)
+            .pipe(_.del([`${_.path.dist.self}**`, `!${_.path.dist.self}`]))
+            .pipe(_.sass().on('error', _.sass.logError))
+            .pipe(_.dest( `${_.path.dist.css}`));
 }
