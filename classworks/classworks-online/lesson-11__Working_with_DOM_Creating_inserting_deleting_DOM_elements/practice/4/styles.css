@@ -1,0 +1,30 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  color: #161619;
+  background-color: #fffff6;
+
+  display: grid;
+  grid-template-rows: 1fr auto 1fr 1fr;
+  grid-gap: 20px;
+}
+
+h1 {
+  grid-row: 2;
+  font-size: 34px;
+  font-weight: 600;
+  padding-left: 15px;
+}
+
+.store {
+  grid-row: 3;
+  padding-left: 15px;
+}
+
+li {
+  font-size: 18px;
+  margin-bottom: 7px;
+  font-weight: 500;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <script>
+            // const passWordManager = {
+
+            //   password: '',
+
+            //   getPassword: function() {
+            //     return this.password
+            //   },
+            //   setPassword: function(password) {
+            //     this.password = password
+            //   }
+            // };
+
+
+            // passWordManager._password = 4;
+            // passWordManager.setPassword('1111');
+
+            // OOP ;
+
+            function createNewUser() {
+      	/*Написать функцию createNewUser(), которая будет создавать и возвращать объект newUser.*/
+
+      	/*При вызове функция должна спросить у вызывающего имя и фамилию.*/
+      	let names = getNames(); 
+
+        
+
+
+      	const newUser = Object.create({}, {
+      			fistName: {
+      				value: names["firstName"],
+      			},
+      			lastName: {
+      				value: names["secondName"],
+      			},
+      			getLogin: {
+      				get() {
+      					return `${this.fistName[0] + this.lastName}`.toLowerCase()
+      				}
+      			}
+      		},
+      	)
+      	return newUser;
+      }
+
+
+      function getNames() {
+      	/*функция должна спросить у вызывающего имя и фамилию.*/
+      	let firstName = prompt('enter first name')
+
+      	while (Number.isInteger(+firstName) || Number.isFinite(+firstName)) {
+      		firstName = prompt('wrong value for first name')
+      	}
+
+      	let secondName = prompt('enter second name')
+      	while (Number.isInteger(+secondName) || Number.isFinite(+secondName)) {
+      		secondName = prompt('wrong value for second name')
+      	}
+      	return {firstName, secondName}
+      }
+    </script>
+    <script src="./7.js"></script>
+  </body>
+</html>

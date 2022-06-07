@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .alert {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+      }
+    </style>
+
+    <div id="container">
+      <div class="created-by-hand">конец строки</div>
+    </div>
+    <script>
+      let div = document.createElement("div");
+      div.className = "alert";
+      div.innerHTML =
+        "<strong>Всем привет!</strong> Вы прочитали важное сообщение.";
+
+      // document.body.append(div);
+      document.getElementById("container").prepend(div);
+    </script>
+  </body>
+</html>
