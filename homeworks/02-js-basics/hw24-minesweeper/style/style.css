@@ -1,0 +1,29 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+table {
+    border-collapse: collapse;
+        /* border-spacing: 0; */
+
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid gray;
+    background-color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: -1px;
+}
+
+td.mine {
+    background-color: coral;
+}
