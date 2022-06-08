@@ -6,11 +6,12 @@ body {
     align-items: center;
     margin: 0;
 }
-table {
-    border-collapse: collapse;
-        /* border-spacing: 0; */
+/* .field {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
 
-}
+} */
 
 .cell {
     width: 30px;
@@ -18,12 +19,29 @@ table {
     padding: 0;
     border: 1px solid gray;
     background-color: #fff;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: -1px;
+    cursor: pointer;
 }
 
-td.mine {
+.cell.mine {
     background-color: coral;
+}
+
+.neighbor {
+    background-color: #e1e4c2;
+}
+
+.hidden {
+    background-color: #72a7ec;
+}
+
+.opened {
+    background-color: white;
+}
+
+.opened.neighbor {
+    background-color: #ebc8ac;
 }
