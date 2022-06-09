@@ -78,7 +78,6 @@ const getNeighborsCoords = (index) => {
     return coordinats;
 };
 
-
 const assignClassToNeighbors = () => {
     const mines = /** @type {NodeListOf.<HTMLElement>} */ (document.querySelectorAll(".mine"));
     mines.forEach((el) => {
@@ -113,7 +112,9 @@ const openEmptyArea = () => {
     let wasAction = false;
     do {
         wasAction = false;
-        const openedEmptyCells = /** @type {NodeListOf.<HTMLElement>} */ (document.querySelectorAll(".opened:not(.neighbor)"));
+        const openedEmptyCells = /** @type {NodeListOf.<HTMLElement>} */ (
+            document.querySelectorAll(".opened:not(.neighbor)")
+        );
         openedEmptyCells.forEach((cell) => {
             const index = +cell.dataset.index;
             const neighborsCoords = getNeighborsCoords(index);
@@ -124,12 +125,19 @@ const openEmptyArea = () => {
                 if (neighborCell.classList.contains("opened") || neighborCell.classList.contains("mine")) continue;
                 if (!neighborCell.classList.contains("opened") && !neighborCell.classList.contains("neighbor")) {
                     neighborCell.classList.add("opened");
+                    if (neighborCell.classList.contains("flag")) {
+                        neighborCell.classList.toggle("flag");
+                    }
                     wasAction = true;
                     continue;
                 }
                 if (neighborCell.classList.contains("neighbor")) {
                     neighborCell.innerHTML = neighborCell.dataset.minesAround;
                     neighborCell.classList.add("opened");
+                    neighborCell.classList.add("opened");
+                    if (neighborCell.classList.contains("flag")) {
+                        neighborCell.classList.toggle("flag");
+                    }
                     wasAction = true;
                     continue;
                 }

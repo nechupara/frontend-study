@@ -18,6 +18,9 @@ field.addEventListener("click", (event) => {
         return;
     }
     clickedItem.classList.add("opened");
+    if (clickedItem.classList.contains("flag")) {
+        clickedItem.classList.toggle("flag");
+    }
     if (clickedItem.classList.contains("neighbor")) {
         clickedItem.innerHTML = clickedItem.dataset.minesAround;
     } else {
@@ -37,4 +40,9 @@ field.addEventListener("contextmenu", (event) => {
     event.stopPropagation();
     event.preventDefault();
     const clickedItem = /** @type {HTMLElement} */ (event.target);
+
+    if (!clickedItem.classList.contains("cell")) return;
+    if (!clickedItem.classList.contains("opened")) {
+        clickedItem.classList.toggle("flag");
+    }
 });
