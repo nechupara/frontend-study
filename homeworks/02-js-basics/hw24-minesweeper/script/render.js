@@ -2,12 +2,11 @@
 "use strict";
 
 const H_CELLS = 20;
-const V_CELLS = 20;
+const V_CELLS = 30;
 const NUMBER_OF_BOMBS = Math.floor((H_CELLS * V_CELLS) / 6);
 
+const field = /** @type {HTMLDivElement} */ (document.querySelector(".field"));
 const drawField = () => {
-    const field = document.createElement("div");
-    field.classList.add("field");
     field.style.cssText = `display: grid;
                            grid-template-columns: repeat(${H_CELLS}, 1fr);
                            grid-template-rows: repeat(${V_CELLS}, 1fr);
@@ -19,19 +18,15 @@ const drawField = () => {
             const cell = document.createElement("div");
             cell.classList.add("cell");
             cell.classList.add("hidden");
-            cell.dataset.row = rowNumber.toString();
-            cell.dataset.col = colNumber.toString();
             cell.dataset.index = cellIndex.toString();
             cellIndex++;
-            // cell.innerText = rowIndex === 0 ? `${colIndex}` : `${rowIndex}${colIndex}`;
             field.append(cell);
         }
     }
-    document.body.prepend(field);
 };
 
 const placeBombs = () => {
-    const cells = document.querySelectorAll(".cell");
+    const cells = /** @type {NodeListOf.<HTMLDivElement>} */ (field.querySelectorAll(".cell"));
     let bombsToPlace = NUMBER_OF_BOMBS;
     while (bombsToPlace) {
         const index = Math.floor(Math.random() * H_CELLS * V_CELLS);
@@ -41,50 +36,51 @@ const placeBombs = () => {
     }
 };
 
-/** @param {Number} index @returns {Array.<{row: Number, col: Number}>}*/
+/** @param {number} index @returns {number}*/
+const getRow = (index) => {
+    return Math.floor(index / H_CELLS) + 1;
+};
 
-const getNeighborsCoords = (index) => {
-    const cell = /** @type {HTMLDivElement} */ (document.querySelector(`[data-index='${index}']`));
-    const row = +cell.dataset.row;
-    const col = +cell.dataset.col;
+/** @param {number} index @returns {number}*/
+const getCol = (index) => {
+    return (index % H_CELLS) + 1;
+};
 
-    const coordinats = [];
-    let neighborsRows = [];
-    let neighborsCols = [];
+/** @param {Number} index @returns {Array.<number>}*/
 
-    if (row > 1 && row < V_CELLS) {
-        neighborsRows = [row - 1, row, row + 1];
-    } else if (row == 1) {
-        neighborsRows = [row, row + 1];
-    } else if (row == V_CELLS) {
-        neighborsRows = [row - 1, row];
-    }
+const getNeighborsIndexesList = (index) => {
+    // const row = getRow(index);
+    const col = getCol(index);
 
-    if (col > 1 && col < H_CELLS) {
-        neighborsCols = [col - 1, col, col + 1];
-    } else if (col === 1) {
-        neighborsCols = [col, col + 1];
-    } else if (col === H_CELLS) {
-        neighborsCols = [col - 1, col];
-    }
+    const indexList = [
+        index - 1,
+        index + 1,
+        index - H_CELLS - 1,
+        index - H_CELLS,
+        index - H_CELLS + 1,
+        index + H_CELLS + 1,
+        index + H_CELLS,
+        index + H_CELLS - 1,
+    ];
+    /** @type {Array.<number>} */
+    const resultIndexList = [];
 
-    for (const rowN of neighborsRows) {
-        for (const colN of neighborsCols) {
-            if (rowN !== row || colN !== col) {
-                coordinats.push({ row: rowN, col: colN });
-            }
+    for (const i of indexList) {
+        if (!(i < 0 || i >= V_CELLS * H_CELLS || Math.abs(col - getCol(i)) > 1)) {
+            resultIndexList.push(i);
         }
     }
-    return coordinats;
+
+    return resultIndexList;
 };
 
 const assignClassToNeighbors = () => {
-    const mines = /** @type {NodeListOf.<HTMLElement>} */ (document.querySelectorAll(".mine"));
+    const mines = /** @type {NodeListOf.<HTMLElement>} */ (field.querySelectorAll(".mine"));
     mines.forEach((el) => {
         const mineIndex = +el.dataset.index;
-        const currentNeighbors = getNeighborsCoords(mineIndex);
-        currentNeighbors.forEach((el) => {
-            const currentCell = document.querySelector(`[data-row='${el.row}'][data-col='${el.col}']`);
+        const indexesOfNeighbors = getNeighborsIndexesList(mineIndex);
+        indexesOfNeighbors.forEach((cellIndex) => {
+            const currentCell = document.querySelector(`[data-index='${cellIndex}']`);
             if (!currentCell.classList.contains("neighbor") && !currentCell.classList.contains("mine")) {
                 currentCell.classList.add("neighbor");
             }
@@ -93,13 +89,13 @@ const assignClassToNeighbors = () => {
 };
 
 const calculateNearbyMines = () => {
-    const neighborsOfMines = /** @type {NodeListOf.<HTMLElement>} */ (document.querySelectorAll(".neighbor"));
+    const neighborsOfMines = /** @type {NodeListOf.<HTMLElement>} */ (field.querySelectorAll(".neighbor"));
     for (const cell of neighborsOfMines) {
         const index = +cell.dataset.index;
         let bombs = 0;
-        const coordsList = getNeighborsCoords(index);
-        for (const coords of coordsList) {
-            const currentCell = document.querySelector(`[data-row='${coords.row}'][data-col='${coords.col}']`);
+        const nearbyCellsIndexes = getNeighborsIndexesList(index);
+        for (const cellIndex of nearbyCellsIndexes) {
+            const currentCell = field.querySelector(`[data-index='${cellIndex}']`);
             if (currentCell.classList.contains("mine")) {
                 bombs++;
             }
@@ -109,58 +105,34 @@ const calculateNearbyMines = () => {
 };
 
 const openEmptyArea = () => {
-    let wasAction = false;
-    do {
-        wasAction = false;
-        const openedEmptyCells = /** @type {NodeListOf.<HTMLElement>} */ (
-            document.querySelectorAll(".opened:not(.neighbor)")
-        );
+    while (true) {
+        const openedEmptyCells = /** @type {NodeListOf.<HTMLElement>} */ (field.querySelectorAll(".expand"));
+        if (!openedEmptyCells.length) break;
         openedEmptyCells.forEach((cell) => {
+            cell.classList.remove("expand");
             const index = +cell.dataset.index;
-            const neighborsCoords = getNeighborsCoords(index);
-            for (const coords of neighborsCoords) {
-                const neighborCell = /** @type {HTMLElement} */ (
-                    document.querySelector(`[data-row='${coords.row}'][data-col='${coords.col}']`)
-                );
-                if (neighborCell.classList.contains("opened") || neighborCell.classList.contains("mine")) continue;
+            const neighborsIndexes = getNeighborsIndexesList(index);
+            for (const cellIndex of neighborsIndexes) {
+                const neighborCell = /** @type {HTMLElement} */ (field.querySelector(`[data-index='${cellIndex}']`));
+                if (neighborCell.classList.contains("opened") || neighborCell.classList.contains("mine")) {
+                    continue;
+                }
                 if (!neighborCell.classList.contains("opened") && !neighborCell.classList.contains("neighbor")) {
-                    neighborCell.classList.add("opened");
-                    if (neighborCell.classList.contains("flag")) {
-                        neighborCell.classList.toggle("flag");
-                    }
-                    wasAction = true;
+                    neighborCell.classList.add("opened", "expand");
+                    neighborCell.classList.remove("flag", "hidden");
                     continue;
                 }
                 if (neighborCell.classList.contains("neighbor")) {
                     neighborCell.innerHTML = neighborCell.dataset.minesAround;
                     neighborCell.classList.add("opened");
-                    neighborCell.classList.add("opened");
-                    if (neighborCell.classList.contains("flag")) {
-                        neighborCell.classList.toggle("flag");
-                    }
-                    wasAction = true;
+                    neighborCell.classList.remove("flag", "hidden");
                     continue;
                 }
             }
         });
-    } while (wasAction);
+    }
 };
 
-// console.log(cells);
-// const firstCell = field.querySelector("[data-row='2'][data-col='2']");
-// console.log(firstCell);
-
-// const mines = field.getElementsByClassName("mine");
-// console.log(mines);
-
-// /** @param {HTMLElement} cell @returns {void}*/
-
-// const checkCellsAround = (cell) => {
-//     const row = cell.dataset.row;
-//     const column = cell.dataset.col;
-//     console.log(row, column);
-// };
-
-// const mine = /**@type{HTMLElement}*/ (mines[0]);
-// console.dir(mines[0]);
-// checkCellsAround(/**@type{HTMLElement}*/ (mines[0]));
+const checkNearbyFlags = () => {
+    
+}
