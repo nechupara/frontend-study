@@ -1,4 +1,3 @@
-// @ts-check
 "use strict";
 
 const H_CELLS = 20;
@@ -152,5 +151,4 @@ const openNearbyWithFlags = (elem) => {
             }
         }
     });
-    console.log('end');
 };
