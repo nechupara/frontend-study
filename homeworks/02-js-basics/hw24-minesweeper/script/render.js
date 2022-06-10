@@ -46,9 +46,10 @@ const getCol = (index) => {
     return (index % H_CELLS) + 1;
 };
 
-/** @param {Number} index @returns {Array.<number>}*/
+/** @param {HTMLElement} elem @returns {Array.<HTMLElement>}*/
 
-const getNeighborsIndexesList = (index) => {
+const getNeighborsElements = (elem) => {
+    const index = +elem.dataset.index;
     // const row = getRow(index);
     const col = getCol(index);
 
@@ -62,45 +63,48 @@ const getNeighborsIndexesList = (index) => {
         index + H_CELLS,
         index + H_CELLS - 1,
     ];
-    /** @type {Array.<number>} */
-    const resultIndexList = [];
+    /** @type {Array.<HTMLElement>} */
+    const elementsList = [];
 
     for (const i of indexList) {
         if (!(i < 0 || i >= V_CELLS * H_CELLS || Math.abs(col - getCol(i)) > 1)) {
-            resultIndexList.push(i);
+            const nearbyCell = /** @type {HTMLElement} */ (field.querySelector(`[data-index='${i}']`));
+            elementsList.push(nearbyCell);
         }
     }
 
-    return resultIndexList;
+    return elementsList;
 };
 
 const assignClassToNeighbors = () => {
     const mines = /** @type {NodeListOf.<HTMLElement>} */ (field.querySelectorAll(".mine"));
     mines.forEach((el) => {
-        const mineIndex = +el.dataset.index;
-        const indexesOfNeighbors = getNeighborsIndexesList(mineIndex);
-        indexesOfNeighbors.forEach((cellIndex) => {
-            const currentCell = document.querySelector(`[data-index='${cellIndex}']`);
-            if (!currentCell.classList.contains("neighbor") && !currentCell.classList.contains("mine")) {
-                currentCell.classList.add("neighbor");
+        const neighborsList = getNeighborsElements(el);
+        neighborsList.forEach((cell) => {
+            if (!cell.classList.contains("neighbor") && !cell.classList.contains("mine")) {
+                cell.classList.add("neighbor");
             }
         });
     });
 };
 
-const calculateNearbyMines = () => {
+/** @param {HTMLElement} elem @param {string} classItem  @returns {number}*/
+const calculateNearbyItems = (elem, classItem) => {
+    const listOfNeighbors = getNeighborsElements(elem);
+    let amount = 0;
+    for (const cell of listOfNeighbors) {
+        if (cell.classList.contains(`${classItem}`)) {
+            amount++;
+        }
+    }
+    return amount;
+};
+
+const assignNumbersToAllNeighbors = () => {
     const neighborsOfMines = /** @type {NodeListOf.<HTMLElement>} */ (field.querySelectorAll(".neighbor"));
     for (const cell of neighborsOfMines) {
-        const index = +cell.dataset.index;
-        let bombs = 0;
-        const nearbyCellsIndexes = getNeighborsIndexesList(index);
-        for (const cellIndex of nearbyCellsIndexes) {
-            const currentCell = field.querySelector(`[data-index='${cellIndex}']`);
-            if (currentCell.classList.contains("mine")) {
-                bombs++;
-            }
-        }
-        cell.dataset.minesAround = bombs.toString();
+        const bobmsNearby = calculateNearbyItems(cell, "mine");
+        cell.dataset.minesAround = bobmsNearby.toString();
     }
 };
 
@@ -110,10 +114,8 @@ const openEmptyArea = () => {
         if (!openedEmptyCells.length) break;
         openedEmptyCells.forEach((cell) => {
             cell.classList.remove("expand");
-            const index = +cell.dataset.index;
-            const neighborsIndexes = getNeighborsIndexesList(index);
-            for (const cellIndex of neighborsIndexes) {
-                const neighborCell = /** @type {HTMLElement} */ (field.querySelector(`[data-index='${cellIndex}']`));
+            const neighborsIndexes = getNeighborsElements(cell);
+            for (const neighborCell of neighborsIndexes) {
                 if (neighborCell.classList.contains("opened") || neighborCell.classList.contains("mine")) {
                     continue;
                 }
@@ -132,7 +134,23 @@ const openEmptyArea = () => {
         });
     }
 };
+/** @param {HTMLElement} elem @returns {void}*/
+const openNearbyWithFlags = (elem) => {
+    const listOfNeighbors = getNeighborsElements(elem);
+    for (const cell of listOfNeighbors) {
+        if (cell.classList.contains("mine") && !cell.classList.contains("flag")) {
+            alert("Game Over");
+            return;
+        }
+    }
 
-const checkNearbyFlags = () => {
-    
-}
+    listOfNeighbors.forEach((cell) => {
+        if (!cell.classList.contains("mine")) {
+            cell.classList.add("opened");
+            if (cell.classList.contains("neighbor")) {
+                cell.innerText = cell.dataset.minesAround;
+            }
+        }
+    });
+    console.log('end');
+};

@@ -4,7 +4,8 @@ drawField();
 placeBombs();
 
 assignClassToNeighbors();
-calculateNearbyMines();
+assignNumbersToAllNeighbors();
+// calculateNearbyMines();
 
 field.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -28,10 +29,14 @@ field.addEventListener("click", (event) => {
 
 field.addEventListener("dblclick", (event) => {
     event.stopPropagation();
-    
+
     const clickedItem = /** @type {HTMLElement} */ (event.target);
     if (clickedItem.classList.contains("opened") && clickedItem.classList.contains("neighbor")) {
-        console.log(clickedItem);
+        if (calculateNearbyItems(clickedItem, "mine") !== calculateNearbyItems(clickedItem, "flag")) {
+            return;
+        } else {
+            openNearbyWithFlags(clickedItem);
+        }
     }
 });
 
