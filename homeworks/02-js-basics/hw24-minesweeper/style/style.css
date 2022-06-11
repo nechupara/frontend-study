@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    flex-direction: column;
 }
 /* .field {
     display: grid;
@@ -37,7 +38,6 @@ body {
 
 .hidden {
     background-color: #72a7ec;
-
 }
 
 .opened {
@@ -49,7 +49,27 @@ body {
 }
 
 .flag {
-    background-image: url('../img/flat_basic_home_flag_-512.webp');
+    background-image: url("../img/flat_basic_home_flag_-512.webp");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cell.explosion {
+    background-color: #df4444;
+}
+
+.wrong-flag {
+    background-color: #eb73bd;
+}
+
+.cell.show-mine {
+    background-color: #646464;
+}
+
+.mine.explosion,
+.mine.show-mine {
+    background-image: url("../img/seamine.png");
     background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;

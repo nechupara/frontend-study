@@ -1,7 +1,7 @@
 "use strict";
 
-const H_CELLS = 20;
-const V_CELLS = 30;
+const H_CELLS = 8;
+const V_CELLS = 8;
 const NUMBER_OF_BOMBS = Math.floor((H_CELLS * V_CELLS) / 6);
 
 const field = /** @type {HTMLDivElement} */ (document.querySelector(".field"));
@@ -23,6 +23,12 @@ const drawField = () => {
         }
     }
 };
+
+const flags = /** @type {HTMLCollectionOf.<HTMLElement>} */ (field.getElementsByClassName("flag"));
+const refreshFlagsNumber = ()=>{
+    const flagsTextField = /** @type {HTMLElement} */  (document.querySelector('#flags'))
+    flagsTextField.innerText = `${flags.length}/${NUMBER_OF_BOMBS}`
+}
 
 const placeBombs = () => {
     const cells = /** @type {NodeListOf.<HTMLDivElement>} */ (field.querySelectorAll(".cell"));
@@ -133,18 +139,35 @@ const openEmptyArea = () => {
         });
     }
 };
+
+const gameOver = () => {
+    const mines = /** @type {HTMLElement} */ field.querySelectorAll(".mine:not(.explosion)");
+    mines.forEach((el) => {
+        el.classList.add("show-mine");
+    });
+};
+
 /** @param {HTMLElement} elem @returns {void}*/
 const openNearbyWithFlags = (elem) => {
+    let isGameOver = false;
     const listOfNeighbors = getNeighborsElements(elem);
     for (const cell of listOfNeighbors) {
         if (cell.classList.contains("mine") && !cell.classList.contains("flag")) {
-            alert("Game Over");
-            return;
+            if (!isGameOver) {
+                cell.classList.add("explosion");
+            }
+            isGameOver = true;
+        } else if (cell.classList.contains("flag") && !cell.classList.contains("mine")) {
+            cell.classList.add("wrong-flag");
         }
     }
 
+    if (isGameOver) {
+        gameOver();
+        return;
+    }
     listOfNeighbors.forEach((cell) => {
-        if (!cell.classList.contains("mine")) {
+        if (!cell.classList.contains("mine") && !cell.classList.contains("wrong-flag")) {
             cell.classList.add("opened");
             if (cell.classList.contains("neighbor")) {
                 cell.innerText = cell.dataset.minesAround;

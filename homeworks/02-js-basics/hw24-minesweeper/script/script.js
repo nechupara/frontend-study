@@ -5,6 +5,7 @@ placeBombs();
 
 assignClassToNeighbors();
 assignNumbersToAllNeighbors();
+refreshFlagsNumber();
 // calculateNearbyMines();
 
 field.addEventListener("click", (event) => {
@@ -13,7 +14,8 @@ field.addEventListener("click", (event) => {
 
     if (!clickedItem.classList.contains("cell") || clickedItem.classList.contains("opened")) return;
     if (clickedItem.classList.contains("mine")) {
-        alert("GAME IS OVER");
+        clickedItem.classList.add("explosion");
+        gameOver();
         return;
     }
     clickedItem.classList.add("opened");
@@ -25,6 +27,7 @@ field.addEventListener("click", (event) => {
         clickedItem.classList.add("expand");
         openEmptyArea();
     }
+    refreshFlagsNumber();
 });
 
 field.addEventListener("dblclick", (event) => {
@@ -49,4 +52,5 @@ field.addEventListener("contextmenu", (event) => {
     if (!clickedItem.classList.contains("opened")) {
         clickedItem.classList.toggle("flag");
     }
+    refreshFlagsNumber();
 });
