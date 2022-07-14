@@ -1,0 +1,37 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+:root {
+  --color1: #161619;
+  --color2: #fffff6;
+
+  --cellColor: mistyrose;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  min-height: 100vh;
+  color: var(--color1);
+  background-color: var(--color2);
+  font-family: system-ui, sans-serif;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  grid-column: 2;
+  grid-row: 2;
+  border: 3px solid var(--color1);
+}
+
+.cell {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--color1);
+  background-color: var(--cellColor);
+  font-size: 15px;
+  font-weight: 700;
+}

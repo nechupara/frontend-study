@@ -1,0 +1,72 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+:root {
+  --color1: #fffff6;
+  --color2: #161619;
+  --color3: grey;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  background-color: var(--color1);
+  color: var(--color2);
+}
+
+section {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 300px;
+  height: 35px;
+  border: 3px solid;
+  border-color: currentColor;
+  border-radius: 7px;
+  color: var(--color2);
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  font-size: 20px;
+}
+
+input[type='text'],
+input[type='tel'] {
+  padding-left: 5px;
+  margin-bottom: 15px;
+}
+
+input[name='phone'] {
+  margin-bottom: 40px;
+}
+
+input[type='submit'] {
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 18px;
+  outline: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+input[type='submit']:hover {
+  background-color: var(--color2);
+  color: var(--color1);
+  border-color: var(--color3);
+}

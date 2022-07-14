@@ -1,0 +1,72 @@
+/**/
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+img {
+	max-width: 100%
+}
+
+a {
+	text-decoration: none;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.container {
+	margin: 0 auto;
+	width: 1170px;
+}
+
+.button {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: 36px;
+	background-color: #F1AD1D;
+	padding: 19px 27px;
+	cursor: pointer;
+
+	color: #fff;
+	font-size: 14px;
+	line-height: 14px;
+	text-decoration: none;
+
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+.button.active,
+.button:hover {
+	background-color: #F48E0B;
+}
+
+.g-tab .tab-menu {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.g-tab .menu-item {
+
+}
+
+.g-tab .tab-content {
+
+}
+.g-tab .content-item {
+	display: none;
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+.g-tab .content-item.active {
+	display: block;
+}

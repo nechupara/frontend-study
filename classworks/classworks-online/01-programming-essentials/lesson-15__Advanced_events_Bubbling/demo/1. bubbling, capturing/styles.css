@@ -1,0 +1,61 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+
+:root {
+  --color1: #161619;
+  --color2: #fffff6;
+
+  --borderColor: #000;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  color: var(--color1);
+  background-color: var(--color2);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.cart {
+  --borderColor: deepskyblue;
+
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+  border: 1px solid var(--borderColor);
+  padding: 15px;
+}
+
+h1 {
+  --borderColor: rebeccapurple;
+
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  border: 1px solid var(--borderColor);
+  cursor: pointer;
+}
+
+ul {
+  --borderColor: firebrick;
+  font-size: 24px;
+  border: 1px solid var(--borderColor);
+  padding: 5px;
+}
+
+li {
+  --borderColor: mistyrose;
+
+  margin-bottom: 5px;
+  border: 1px solid var(--borderColor);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: var(--color1);
+}
+
+li:hover {
+  --color1: orangered;
+}
