@@ -1,0 +1,245 @@
+/**/
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+img {
+	max-width: 100%
+}
+
+a {
+	text-decoration: none;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+	.container {
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+.divider {
+	border: none;
+	background: #F1AD1D;
+	width: 62px;
+	height: 4px;
+}
+
+
+.header-wrap{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header-wrap::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 3px;
+	width: 100%;
+	background-color: #F1B128;
+}
+
+.header-logo {}
+
+.header-menu { display: none; }
+
+@media screen and (min-width: 1218px) {
+	.header-menu {
+		display: block;
+	}
+}
+
+.menu-list .menu-item {
+	display: inline-block;
+}
+
+.menu-list .menu-item:not(:last-child) {
+	margin-right: 35px;
+}
+
+.menu-list .menu-item a {
+	color: black;
+	text-decoration: none;
+}
+
+
+
+/*
+* images-section
+*/
+
+.images-section {
+	margin-top: 128px;
+}
+
+.images-section .section-header {
+	margin-bottom: 100px;
+	text-align: center;
+}
+
+.images-section .section-header .header-title {
+	margin-bottom: 28px;
+	color: #333333;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.images-section .section-header .header-desc {
+	color: #4D4943;
+	font-size: 17px;
+	line-height: 1.2;
+}
+
+.images-section .section-wrapper {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+	.images-section .section-wrapper {
+		flex-direction: column;
+	}
+}
+
+.images-section .images-wrapper {
+	display: inline-flex;
+	flex-wrap: wrap;
+	margin: -15px;
+	width: 52%;
+}
+
+@media screen and (max-width: 767px) {
+	.images-section .images-wrapper {
+		width: 100%;
+		margin-top: 32px;
+	}
+}
+
+.images-section .images-wrapper .image-item {
+	position: relative;
+	box-sizing: border-box;
+	padding: 15px;
+	margin: 0;
+	width: 50%;
+}
+
+@media screen and (max-width: 960px) {
+	.images-section .images-wrapper .image-item {
+		width: 100%;
+		padding: 15px 0;
+	}
+}
+
+.images-section .images-wrapper .image-item img {
+	height: 100%;
+	width: 100%;
+}
+
+.images-section .images-wrapper .image-item-desc {
+	position: absolute;
+	bottom: 16px;
+	left: 16px;
+	background-color: #333333;
+	padding: 14px;
+	min-width: 116px;
+	color: white;
+	font-size: 14px;
+}
+
+.images-section .content-wrapper {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	padding-left: 30px;
+	width: 48%;
+
+	/*@media screen and (max-width: 1200px) {*/
+	/*	width: 100%;*/
+	/*	padding-left: 0;*/
+	/*	order: -1;*/
+	/*}*/
+	/*	*/
+	/*@media screen and (max-width: 1024px) */
+	/*	width: 100%;*/
+	/*	padding-left: 0;*/
+	/*	order: -1;*/
+	/*}*/
+
+	/*@media screen and (max-width: 767px) {*/
+	/*	width: 100%;*/
+	/*	padding-left: 0;*/
+	/*	order: -1;*/
+	/*}*/
+}
+
+@media screen and (max-width: 767px) {
+	.images-section .content-wrapper {
+		width: 100%;
+		padding-left: 0;
+		order: -1;
+	}
+}
+
+.images-section .content-wrapper .content-title {
+	margin-bottom: 26px;
+	color: #333333;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.images-section .content-wrapper .content-title .colored {
+	color: #F1AD1D;
+}
+
+.images-section .content-wrapper .content-text {
+	color: #505050;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.images-section .content-wrapper .content-text + .content-text {
+	margin-top: 30px;
+}
+
+.images-section .content-wrapper .button {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: 36px;
+	background: #F1AD1D;
+	padding: 19px 27px;
+	color: #fff;
+
+	font-size: 14px;
+	line-height: 14px;
+	text-decoration: none;
+	/*
+		text-decoration - убрать у ссылки подчеркивание.
+		https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+	*/
+}

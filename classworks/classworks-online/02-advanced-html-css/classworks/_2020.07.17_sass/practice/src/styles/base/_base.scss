@@ -1,0 +1,22 @@
+@import "../variables/fonts";
+@import "../mixins/font";
+@import "reset";
+@import "fonts";
+@import "img";
+@import "link";
+@import "typography";
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 16px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $fontFamily;
+	font-size: 14px;
+}
+
+html,body { height: 100%; }

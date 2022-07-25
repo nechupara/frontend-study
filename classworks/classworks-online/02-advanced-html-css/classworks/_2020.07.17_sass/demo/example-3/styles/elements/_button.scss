@@ -1,0 +1,22 @@
+@import "../mixins/reset_button";
+
+.btn {
+	@include Btn-reset();
+}
+
+%btn{
+	margin: 10px;
+	color: black;
+	width: 200px;
+	height: 100px;
+}
+
+.btn-blue{
+	@include Btn-reset();
+	@extend %btn;
+	background:blue;
+}
+
+.btn-blue_v1{
+	@extend .btn-blue;
+}

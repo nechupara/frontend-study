@@ -1,0 +1,91 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.container {
+  padding: 60px 100px 0; }
+
+.logo {
+  margin: 20px 0; }
+  .logo__text {
+    font-size: 80px; }
+    .logo__text--blue {
+      color: #4bcaff; }
+
+.nav {
+  margin: 30px 0; }
+  .nav__menu {
+    margin: 0 auto;
+    background-color: #35444f;
+    text-align: center; }
+  .nav__item {
+    display: inline-block;
+    line-height: 69px;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent; }
+    .nav__item:hover {
+      background-color: #222f3a;
+      border-right-color: #fff;
+      border-left-color: #fff; }
+  .nav__link {
+    padding: 0 26px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none; }
+  .nav--footer .nav__menu {
+    background-color: #ccc;
+    text-align: left; }
+  .nav--footer .nav__item {
+    color: #000;
+    border: none; }
+    .nav--footer .nav__item:hover {
+      background-color: transparent; }
+  .nav--footer .nav__link {
+    color: #000; }
+    .nav--footer .nav__link:hover {
+      color: #4bcaff; }
+
+/*# sourceMappingURL=index.css.map */

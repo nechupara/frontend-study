@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pizza</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-row">
+            <ul class="navbar-nav">
+                <li class="navbar-nav-item">
+                    <a href="#" class="navbar-nav-link">
+                        pizza delivery
+                    </a>
+                </li>
+                <li class="navbar-nav-item">
+                    <a href="#" class="navbar-nav-link">
+                        ui/ux salads
+                    </a>
+                </li>
+                <li class="navbar-nav-item">
+                    <a href="#" class="navbar-nav-link">
+                        desserts
+                    </a>
+                </li>
+                <li class="navbar-nav-item">
+                    <a href="#" class="navbar-nav-link">
+                        about us
+                    </a>
+                </li>
+                <li class="navbar-nav-item">
+                    <a href="#" class="navbar-nav-link">
+                        contacts
+                    </a>
+                </li>
+            </ul>
+            <a id="navbar-toggle-btn" class="navbar-button" href="#">
+                <span class="navbar-button-line"></span>
+                <span class="navbar-button-line"></span>
+                <span class="navbar-button-line"></span>
+            </a>
+            <a href="#" class="navbar-logo">
+                <span class="navbar-logo-text">navigation</span>
+                <img class="navbar-logo-image" src="./image/navbar-logo.png" alt="navbar-logo">
+            </a>
+        </div>
+    </div>
+</nav>
+<script type="application/javascript">
+    const btnToggleNavBar = document.getElementById("navbar-toggle-btn");
+    btnToggleNavBar.addEventListener("click", function (event) {
+        event.preventDefault();
+        this.classList.toggle("open");
+    })
+</script>
+</body>
+</html>

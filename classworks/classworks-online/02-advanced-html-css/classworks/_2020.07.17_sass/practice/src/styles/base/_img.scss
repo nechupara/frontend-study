@@ -1,0 +1,11 @@
+img { max-width: 100%; vertical-align: middle; }
+
+/* all svg images by default will be with 100% width */
+[src*=".svg"] { width: 100%; }
+
+[class*="svg-"] use {
+	pointer-events: none;
+}
+span[class*="svg-"] {
+	display: inline-block;
+}

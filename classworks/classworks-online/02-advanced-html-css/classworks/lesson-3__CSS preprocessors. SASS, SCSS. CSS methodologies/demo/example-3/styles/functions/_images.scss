@@ -1,0 +1,4 @@
+@function image($filename){
+	@return unquote("url(//#{$hostname}/images/#{$filename}?#{$cache_buster})");
+}
+

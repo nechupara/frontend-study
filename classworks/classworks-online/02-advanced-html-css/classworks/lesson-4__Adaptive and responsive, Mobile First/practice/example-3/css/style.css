@@ -1,0 +1,246 @@
+/**/
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+img {
+	max-width: 100%
+}
+
+a {
+	text-decoration: none;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.container {
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.divider {
+	border: none;
+	background: #F1AD1D;
+	height: 3px;
+	width: 66px;
+}
+
+/* Style fot section */
+
+.g-section .section-header {
+	padding-bottom: 106px;
+	text-align: center;
+}
+
+.g-section .section-header.line::after {
+	content: '';
+	height: 3px;
+	width: 110px;
+	background-color: #F1AD1D;
+	display: block;
+	margin: 48px auto 0;
+
+}
+
+.g-section .section-header .section-title {
+	margin: 0;
+	font-size: 22px;
+	line-height: 1;
+	color: #333;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.g-section .section-header .section-desc {
+	line-height: 1.2;
+	font-size: 16px;
+	color: #4D4943;
+}
+
+.button-wrap {
+	margin-top: 36px;
+}
+
+.button-wrap .button {
+	padding: 16px 26px;
+	background-color: #F1AD1D;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 1;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.button-wrap .button:hover,
+.button-wrap .button:focus {
+	background-color: #936505;
+}
+
+.button-wrap .button-outline {
+	padding: 16px 26px;
+	border: 1px solid #FFFFFF;
+	background-color: transparent;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 1;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.button-wrap .button-outline:hover,
+.button-wrap .button-outline:focus {
+	background-color: #fff;
+	color: #505050;
+}
+
+.buttons-wrapper {
+	display: flex;
+	align-items: center;
+
+}
+
+.buttons-wrapper .button {
+	background-color: #F1AD1D;
+	min-width: 122px;
+	padding: 16px 40px;
+	box-sizing: border-box;
+	color: white;
+	font-weight: 900;
+	font-size: 14px;
+	line-height: 1;
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.buttons-wrapper .button:hover,
+.buttons-wrapper .button:focus {
+	background-color: #F48E0B;
+}
+
+.buttons-wrapper .button:not(:last-child) {
+	margin-right: 20px;
+}
+
+/* Style fot section Goods */
+.section-goods .post-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.section-goods .post-item {
+	padding: 15px;
+	width: calc(100 / 3 * 1%);
+	box-sizing: border-box;
+}
+
+.section-goods .post-card:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.section-goods .post-image {
+	margin-bottom: 7px;
+}
+
+.section-goods .post-image .image {
+	width: 100%;
+}
+
+.section-goods .post-image .audio {
+	height: 48px;
+	background-color: #111111;
+}
+
+.section-goods .post-quote {
+	padding: 20px;
+	min-height: 160px;
+	box-sizing: border-box;
+	background-color: #DBDBDB;
+	font-size: 12px;
+	line-height: 1.2;
+	color: #666666;
+}
+
+.section-goods .post-quote .quote {
+	font-size: 26px;
+	line-height: 1.2;
+}
+
+.section-goods .post-mark {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 35px;
+	margin-right: 8px;
+	background-color: #333333;
+}
+
+.section-goods .post-mark .svg-icon {
+	width: 100%;
+	height: 1em;
+	fill: #F48E0B;
+}
+
+.section-goods .post-title {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1.2;
+	color: #333333;
+}
+
+.section-goods .post-desc {
+	margin-bottom: 14px;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.2;
+	color: #505050;
+}
+
+.section-goods .post-footer {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid #C1C1C1;
+	border-bottom: 3px solid #333333;
+	padding: 10px 0 5px;
+	box-sizing: border-box;
+	color: #828282;
+}
+
+.section-goods .post-time {
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.section-goods .post-link {
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 1.2;
+	color: inherit;
+}
+
+.section-goods .buttons-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 109px;
+}
