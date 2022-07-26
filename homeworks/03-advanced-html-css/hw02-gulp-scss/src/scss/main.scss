@@ -1,6 +1,4 @@
-@import "./base/reset";
-@import "./layout/base";
+@import "base/base";
+@import "abstracts/abstracts";
+@import "./sections/sections";
 
-// html {
-//   font-size: 20px;
-// }

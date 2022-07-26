@@ -1,33 +1,32 @@
 const { watch, task, series, parallel, src, dest } = require("gulp");
 
 const sass = require("gulp-sass")(require("sass"));
-const del = require("del"); 
+const del = require("del");
 const concat = require("gulp-concat");
 const include = require("gulp-include");
 const prettier = require("gulp-prettier");
 const browserSync = require("browser-sync").create();
 const gulpCleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
-
-
+const autoprefixer = require("gulp-autoprefixer");
+const rename = require("gulp-rename");
 
 const path = {
   src: {
-    root: "./src/",
-    scss: "./src/scss/",
-    js: "./src/js/",
-    img: "./src/img/",
-    html: "./src/html/",
+    root: "./src",
+    scss: "./src/scss",
+    js: "./src/js",
+    img: "./src/img",
+    html: "./src/html",
   },
 
   dist: {
-    root: "./dist/",
-    css: "./dist/css/",
-    js: "./dist/js/",
-    img: "./dist/img/",
+    root: "./dist",
+    css: "./dist/css",
+    js: "./dist/js",
+    img: "./dist/img",
   },
 };
-
 
 const server = () => {
   browserSync.init({
@@ -40,13 +39,13 @@ const server = () => {
   });
 };
 
-
 const scss = () => {
   return (
-    src(`${path.src.scss}main.scss`)
+    src(`${path.src.scss}/main.scss`)
       .pipe(sourcemaps.init())
       .pipe(sass().on("error", sass.logError))
       // .pipe(cleanCSS({format:"beautify"}))
+      .pipe(rename({ basename: "styles", suffix: ".min" }))
       .pipe(sourcemaps.write())
       .pipe(dest(`${path.dist.css}`))
       .pipe(browserSync.stream())
@@ -54,15 +53,15 @@ const scss = () => {
 };
 
 const clean = async () => {
-  return del([`${path.dist.self}**`, `!${path.dist.self}`]);
+  return del([`${path.dist.root}/**`, `!${path.dist.root}`]);
 };
 
 const html = () => {
-  return src([`${path.src.html}index.html`])
+  return src([`${path.src.html}/index.html`])
     .pipe(sourcemaps.init())
     .pipe(
       include({
-        includePaths: __dirname + "/../.." + path.src.html.slice(1),
+        includePaths: __dirname + path.src.html.slice(1),
         // prefix: "@@",
         // basepath: `${path.src.html}`,
       })
@@ -81,26 +80,32 @@ const html = () => {
 };
 
 const cleanCSS = () => {
-  return src(`${path.dist.css}**/*.css`)
+  return src(`${path.dist.css}/**/*.css`)
     .pipe(gulpCleanCSS())
     .pipe(dest(`${path.dist.css}`))
     .pipe(browserSync.stream());
-};;
+};
 
-
+const img = () => {
+  return src(`${path.src.img}/**/*`).pipe(dest(path.dist.img));
+};
 
 const watchers = () => {
   server();
-  watch([`${path.src.scss}**/*.scss`], scss);
+  watch([`${path.src.scss}/**/*.scss`], scss);
   // .on(
   //   "change",
   //   browserSync.reload
   // );
-  watch([`${path.src.html}*.html`], html);
+  watch([`${path.src.html}/**/*.html`], html);
   // .on(
   //   "change",
   //   browserSync.reload
   // );
+  watch(`${path.src.img}/**/*.{jpg,png,svg}`, img).on(
+    "change",
+    browserSync.reload
+  );
 };
 
 exports.default = scss;
@@ -110,4 +115,4 @@ exports.clean = clean;
 exports.html = html;
 exports.watcher = watchers;
 exports.server = server;
-exports.dev = series(clean, parallel(scss, html), watchers, server);
+exports.dev = series(clean, parallel(scss, html, img), watchers, server);
