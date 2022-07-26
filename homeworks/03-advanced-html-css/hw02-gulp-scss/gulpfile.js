@@ -10,6 +10,7 @@ const gulpCleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
+const ttf2woff2 = require("gulp-ttf2woff2");
 
 const path = {
   src: {
@@ -18,6 +19,7 @@ const path = {
     js: "./src/js",
     img: "./src/img",
     html: "./src/html",
+    fonts: "./src/fonts",
   },
 
   dist: {
@@ -25,6 +27,7 @@ const path = {
     css: "./dist/css",
     js: "./dist/js",
     img: "./dist/img",
+    fonts: "./dist/fonts",
   },
 };
 
@@ -52,12 +55,18 @@ const scss = () => {
   );
 };
 
+const font = () => {
+  return src([`${path.src.fonts}/**/*.ttf`])
+    .pipe(ttf2woff2())
+    .pipe(dest(path.dist.fonts));
+};
+
 const clean = async () => {
   return del([`${path.dist.root}/**`, `!${path.dist.root}`]);
 };
 
 const html = () => {
-  return src([`${path.src.html}/index.html`])
+  return src([`${path.src.root}/index.html`])
     .pipe(sourcemaps.init())
     .pipe(
       include({
@@ -97,7 +106,7 @@ const watchers = () => {
   //   "change",
   //   browserSync.reload
   // );
-  watch([`${path.src.html}/**/*.html`], html);
+  watch([`${path.src.html}/**/*.html`, `${path.src.root}/index.html`], html);
   // .on(
   //   "change",
   //   browserSync.reload
@@ -106,6 +115,8 @@ const watchers = () => {
     "change",
     browserSync.reload
   );
+
+  watch(`${path.src.fonts}/**/*.ttf`, font).on("change", browserSync.reload);
 };
 
 exports.default = scss;
@@ -115,4 +126,4 @@ exports.clean = clean;
 exports.html = html;
 exports.watcher = watchers;
 exports.server = server;
-exports.dev = series(clean, parallel(scss, html, img), watchers, server);
+exports.dev = series(clean, parallel(scss, html, img, font), watchers, server);

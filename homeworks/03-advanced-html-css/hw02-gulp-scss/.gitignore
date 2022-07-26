@@ -7,4 +7,3 @@ package-lock.json
 *.iml
 .prettierignore
 .prettierrc
-.task.md
