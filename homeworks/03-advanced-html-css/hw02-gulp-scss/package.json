@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "homework-02. GULP and SCSS",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,19 @@
   "bugs": {
     "url": "https://github.com/nechupara/frontend-study/issues"
   },
-  "homepage": "https://github.com/nechupara/frontend-study#readme"
+  "homepage": "https://github.com/nechupara/frontend-study/blob/master/homeworks/03-advanced-html-css/hw02-gulp-scss#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-include": "^2.4.1",
+    "gulp-prettier": "^4.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.54.0"
+  }
 }
