@@ -1,11 +1,18 @@
 .insta-shots {
+  @include flex-center;
   background-color: $bgc-insta-shots;
   padding-top: 47px;
   padding-bottom: 50px;
 }
 
+.insta-shots__content-wrapper {
+  margin: 0 7px;
+  max-width: $max-width-xl;
+  flex-grow: 1;
+}
+
 .insta-shots__header-wrapper {
-  @include margin0auto($max-width-xl);
+  // @include margin0auto($max-width-xl);
   @include flex-space-between;
   padding-bottom: 24px;
 }
@@ -14,9 +21,22 @@
   text-decoration: none;
   @include set-font(13px, 700, 22px, uppercase);
   color: $header-txt-color;
+
+  @media screen and (max-width: ($max-width-l - 1)) {
+    display: none;
+  }
 }
 
 .insta-shots__gallery {
-  @include margin0auto($max-width-xl);
-  @include flex-space-between;
+  // @include margin0auto($max-width-xl);
+// @include flex-space-between;
+height: 285px;
+overflow: hidden;
+display: flex;
+justify-content: start;
+flex-wrap: wrap;
+gap: 10px;
+a {
+  flex-grow: 1;
+}
 }

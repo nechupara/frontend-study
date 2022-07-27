@@ -1,26 +1,38 @@
 .posts {
-  @include margin0auto($max-width-xl);
+  @include flex-center;
   padding-bottom: 60px;
+}
+
+.posts__content-wrapper {
+  max-width: $max-width-xl;
+  flex-grow: 1;
+  margin: 0 7px;
 }
 
 .posts__articles-list {
   margin-top: 24px;
   display: grid;
-  
-  grid-auto-columns: max-content;
-  grid-template-columns: repeat(auto-fill, minmax(585px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   row-gap: 32px;
+  column-gap: 25px;
+
 }
 
 .posts__article-text-wrapper {
   display: flex;
   flex-direction: column;
-  width: 404px;
+  max-width: 404px;
+  min-width: 280px;
 }
 
 .posts__article {
   display: flex;
   gap: 21px;
+
+  img {
+    width: 160px;
+    height: 140px;
+  }
 }
 
 .posts__article-header {
