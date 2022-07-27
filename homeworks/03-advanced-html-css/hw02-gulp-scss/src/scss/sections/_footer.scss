@@ -1,0 +1,48 @@
+.footer {
+  background-color: $bgc-footer;
+  padding-top: 66px;
+  padding-bottom: 70px;
+}
+
+.footer__content-wrapper {
+  @include margin0auto($max-width-xl);
+  @include flex-center;
+  flex-direction: column;
+
+  .section-header {
+    margin-bottom: 22px;
+  }
+}
+
+.footer__about-us {
+  max-width: 684px;
+  @include set-font(16px, 400, 28px);
+  color: $footer-txt-color;
+  text-align: center;
+  margin-bottom: 37px;
+}
+
+.footer__socials-wrapper {
+  @include flex-center;
+  gap: 6px;
+  padding-bottom: 34px;
+}
+
+.footer__contacts-wrapper {
+  @include flex-center;
+  gap: 12px;
+}
+
+.footer__adress,
+.footer__phone,
+.footer__email,
+.footer__contact-delimiter {
+  @include set-font(16px, 400, 26px);
+  color: $footer-txt-color;
+  text-decoration: none;
+}
+
+.footer__contact-delimiter::before {
+ content: '/';
+}
+

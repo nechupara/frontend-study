@@ -2,3 +2,7 @@
   @include set-font(16px, 700, 22px, uppercase);
   color: $header-txt-color;
 }
+
+.section-header--light {
+  color: $header-txt-color-light;
+}
