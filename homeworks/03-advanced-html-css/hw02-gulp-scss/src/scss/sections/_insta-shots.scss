@@ -1,0 +1,22 @@
+.insta-shots {
+  background-color: $bgc-insta-shots;
+  padding-top: 47px;
+  padding-bottom: 50px;
+}
+
+.insta-shots__header-wrapper {
+  @include margin0auto($max-width-xl);
+  @include flex-space-between;
+  padding-bottom: 24px;
+}
+
+.insta-shots__insta-link {
+  text-decoration: none;
+  @include set-font(13px, 700, 22px, uppercase);
+  color: $header-txt-color;
+}
+
+.insta-shots__gallery {
+  @include margin0auto($max-width-xl);
+  @include flex-space-between;
+}

@@ -1,31 +1,19 @@
 .header {
+  padding-bottom: 66px;
+
   .header__menu {
-    max-width: $max-width-xl;
+    @include margin0auto($max-width-xl);
     @include flex-center;
-    gap: 68px;
-    margin: 0 auto;
+    gap: 70px; 
     // padding:  45px (0.11 * $max-width-xl) 51px;
-    padding: 45px 175px 51px;
+    padding: 45px 0 51px;
 
-    // &::before {
-    //   content: "|";
-    //   display: block;
-    //   padding-left: 5%;
-    // }
-
-    // &::after {
-    //   content: "|";
-    //   display: block;
-    //   padding-right: 5%;
-    // }
   }
 
   .header__menu-item {
     @include flex-center;
     color: $header-txt-color;
-    height: 22px;
-    font-size: toRem(11px);
-    text-transform: uppercase;
+    @include set-font(11px, 400, 22px, uppercase);
     white-space: nowrap;
 
     &--active {
@@ -36,9 +24,8 @@
   .header__img {
     max-width: $max-width-xl;
     margin: 0 auto;
-
     img {
-      display: inline;
+      display: block;
       width: 100%;
     }
   }

@@ -1,0 +1,40 @@
+.posts {
+  @include margin0auto($max-width-xl);
+  padding-bottom: 60px;
+}
+
+.posts__articles-list {
+  margin-top: 24px;
+  display: grid;
+  
+  grid-auto-columns: max-content;
+  grid-template-columns: repeat(auto-fill, minmax(585px, 1fr));
+  row-gap: 32px;
+}
+
+.posts__article-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 404px;
+}
+
+.posts__article {
+  display: flex;
+  gap: 21px;
+}
+
+.posts__article-header {
+  @include set-font(16px, 700, 30px);
+  color: $header-txt-color;
+}
+
+.posts__article-breadcrums {
+  @include set-font(12px, 400, 20px);
+  color: $breadcrums-txt-color;
+  text-decoration: none;
+}
+
+.posts__article-text {
+  @include set-font(14px, 400, 26px);
+  margin-top: 7px;
+}

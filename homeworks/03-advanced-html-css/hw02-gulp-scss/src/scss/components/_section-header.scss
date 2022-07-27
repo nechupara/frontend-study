@@ -1,0 +1,4 @@
+.section-header {
+  @include set-font(16px, 700, 22px, uppercase);
+  color: $header-txt-color;
+}

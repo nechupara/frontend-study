@@ -9,3 +9,15 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@mixin margin0auto($max-width: 100%) {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@mixin set-font($size, $weight, $lineheight, $transform: none) {
+  font-size: toRem($size);
+  font-weight: $weight;
+  line-height: $lineheight;
+  text-transform: $transform;
+}

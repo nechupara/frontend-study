@@ -66,7 +66,7 @@ const clean = async () => {
 };
 
 const html = () => {
-  return src([`${path.src.root}/index.html`])
+  return src([`${path.src.html}/index.html`])
     .pipe(sourcemaps.init())
     .pipe(
       include({
@@ -106,7 +106,7 @@ const watchers = () => {
   //   "change",
   //   browserSync.reload
   // );
-  watch([`${path.src.html}/**/*.html`, `${path.src.root}/index.html`], html);
+  watch([`${path.src.html}/**/*.html`], html);
   // .on(
   //   "change",
   //   browserSync.reload
