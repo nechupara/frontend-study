@@ -1,5 +1,23 @@
-<svg width="44" height="37" viewBox="0 0 44 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="44" height="37" fill="black"/>
-<rect x="27.8033" y="24.7175" width="17" height="2" transform="rotate(-135 27.8033 24.7175)" fill="white"/>
-<rect x="15.7825" y="23.3033" width="17" height="2" transform="rotate(-45 15.7825 23.3033)" fill="white"/>
+<svg
+   width="13.435"
+   height="13.435"
+   viewBox="0 0 13.435 13.435"
+   fill="none"
+   xmlns="http://www.w3.org/2000/svg">
+  <rect
+     x="-18"
+     y="-1"
+     width="17"
+     height="2"
+     transform="rotate(-135)"
+     fill="#ffffff"
+     id="rect322" />
+  <rect
+     x="-8.5"
+     y="8.5"
+     width="17"
+     height="2"
+     transform="rotate(-45)"
+     fill="#ffffff"
+     id="rect324" />
 </svg>

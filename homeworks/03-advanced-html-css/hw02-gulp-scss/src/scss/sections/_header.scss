@@ -1,5 +1,5 @@
 .header {
-  padding-top: 45px;
+  padding-top: 41px;
   padding-bottom: 66px;
   @include flex-center;
 }
@@ -8,24 +8,63 @@
   max-width: $max-width-xl;
   flex-grow: 1;
   position: relative;
+    @media screen and (max-width: $max-width-l) {
+    padding-top: $menu-line-height;
+  }
 }
 
 .header__menu-btn {
-  background-color: hsl(0, 0%, 0%);
-  width: 44px;
-  height: 37px;
+  width: $menu-btn-width;
+  height: $menu-btn-height;
   position: absolute;
   top: 0;
   right: 0;
   border: none;
+  background-color: hsl(0, 0%, 0%);
+  background-image: url("../img/01-header/menu-button.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none;
+
+  @media screen and (max-width: $max-width-l) {
+    display: initial;
+  }
 }
 
 .header__menu {
   // @include margin0auto($max-width-xl);
-  @include flex-center;
-  gap: 70px;
-  // padding:  45px (0.11 * $max-width-xl) 51px;
-  padding-bottom: 45px;
+  @include flex-space-between;
+  padding:  0 13% 0;
+
+  @media screen and (max-width: $max-width-l) {
+    // display: none;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: $menu-btn-height;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 0;
+    width: 182px;
+    background-color: $bgc-drop-menu;
+
+    .header__menu-item {
+      width: 100%;
+      padding: 0 5px 0 12px;
+      &:hover {
+        background-color: $bgc-drop-menu-hover;
+      }
+    }
+
+    .header__menu-link {
+      display: block;
+      width: 100%;
+      cursor: default;
+    }
+    
+
+  }
 }
 
 .header__menu-item {
@@ -36,7 +75,7 @@
 }
 
 .header__menu-link {
-  @include set-font(11px, 400, 22px, uppercase);
+  @include set-font(11px, 400, $menu-line-height, uppercase);
   color: $header-txt-color;
   white-space: nowrap;
   text-decoration: none;
@@ -48,9 +87,10 @@
 
 .header__img {
   max-width: $max-width-xl;
-  margin: 0 auto;
+  margin-top: 45px;
   img {
     display: block;
     width: 100%;
   }
+
 }
