@@ -15,6 +15,9 @@
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   row-gap: 32px;
   column-gap: 25px;
+    @media screen and (max-width: $max-width-m) {
+    grid-template-columns: 1fr;
+  }
 
 }
 
@@ -23,6 +26,7 @@
   flex-direction: column;
   max-width: 404px;
   min-width: 280px;
+
 }
 
 .posts__article {
@@ -32,6 +36,14 @@
   img {
     width: 160px;
     height: 140px;
+  }
+
+  @media screen and (max-width: $max-width-m) {
+    flex-direction: column;
+    gap: 11px;
+    .posts__article-text {
+      display: none;
+    }
   }
 }
 

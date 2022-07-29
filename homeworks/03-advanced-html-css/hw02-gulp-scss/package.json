@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,9 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-include": "^2.4.1",
+    "gulp-minify": "^3.1.0",
     "gulp-prettier": "^4.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",

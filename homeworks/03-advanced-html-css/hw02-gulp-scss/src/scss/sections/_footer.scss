@@ -12,6 +12,11 @@
   .section-header {
     margin-bottom: 22px;
   }
+
+  @media screen and (max-width: $max-width-l) {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
 }
 
 .footer__about-us {
@@ -30,12 +35,11 @@
 
 .footer__contacts-wrapper {
   @include flex-center;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
-.footer__adress,
-.footer__phone,
-.footer__email,
+.footer__contact-item,
 .footer__contact-delimiter {
   @include set-font(16px, 400, 26px);
   color: $footer-txt-color;
@@ -43,6 +47,5 @@
 }
 
 .footer__contact-delimiter::before {
- content: '/';
+  content: "/";
 }
-

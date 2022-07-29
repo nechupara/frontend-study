@@ -2,21 +2,23 @@ const { watch, task, series, parallel, src, dest } = require("gulp");
 
 const sass = require("gulp-sass")(require("sass"));
 const del = require("del");
-const concat = require("gulp-concat");
+// const concat = require("gulp-concat");  // CURRENTLY NOT IN USE. I'm usint gulp-include instead
 const include = require("gulp-include");
 const prettier = require("gulp-prettier");
 const browserSync = require("browser-sync").create();
-const gulpCleanCSS = require("gulp-clean-css");
+const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
 const ttf2woff2 = require("gulp-ttf2woff2");
+const uglify = require("gulp-uglify");
+const imagemin = require("gulp-imagemin");
 
 const path = {
   src: {
     root: "./src",
     scss: "./src/scss",
-    js: "./src/js",
+    js: "./src/script",
     img: "./src/img",
     html: "./src/html",
     fonts: "./src/fonts",
@@ -25,7 +27,7 @@ const path = {
   dist: {
     root: "./dist",
     css: "./dist/css",
-    js: "./dist/js",
+    js: "./dist/script",
     img: "./dist/img",
     fonts: "./dist/fonts",
   },
@@ -42,7 +44,7 @@ const server = () => {
   });
 };
 
-const scss = () => {
+const scssDev = () => {
   return (
     src(`${path.src.scss}/main.scss`)
       .pipe(sourcemaps.init())
@@ -66,7 +68,7 @@ const clean = async () => {
 };
 
 const html = () => {
-  return src([`${path.src.html}/index.html`])
+  return src([`${path.src.root}/index.html`])
     .pipe(sourcemaps.init())
     .pipe(
       include({
@@ -88,42 +90,109 @@ const html = () => {
     .pipe(browserSync.stream());
 };
 
-const cleanCSS = () => {
-  return src(`${path.dist.css}/**/*.css`)
-    .pipe(gulpCleanCSS())
-    .pipe(dest(`${path.dist.css}`))
+const jsDev = () => {
+  return src([`${path.src.js}/main.js`])
+    .pipe(sourcemaps.init())
+    .pipe(
+      include({
+        includePaths: __dirname + path.src.js.slice(1),
+        // prefix: "@@",
+        // basepath: `${path.src.html}`,
+      })
+    )
+    .on("error", console.log)
+    .pipe(rename({ basename: "scripts", suffix: ".min" }))
+    .pipe(
+      prettier({
+        tabWidth: 2,
+        printWidth: 80,
+      })
+    )
+    .pipe(sourcemaps.write())
+    .pipe(dest(path.dist.js))
     .pipe(browserSync.stream());
 };
 
-const img = () => {
-  return src(`${path.src.img}/**/*`).pipe(dest(path.dist.img));
+const imgDev = () => {
+  return src(`${path.src.img}/**/*.{jpg,png,svg,webp}`).pipe(
+    dest(path.dist.img)
+  );
 };
 
 const watchers = () => {
   server();
-  watch([`${path.src.scss}/**/*.scss`], scss);
+  watch([`${path.src.scss}/**/*.scss`], scssDev);
   // .on(
   //   "change",
   //   browserSync.reload
   // );
-  watch([`${path.src.html}/**/*.html`], html);
+  watch([`${path.src.html}/**/*.html`, `${path.src.root}/index.html`], html);
   // .on(
   //   "change",
   //   browserSync.reload
   // );
-  watch(`${path.src.img}/**/*.{jpg,png,svg}`, img).on(
+  watch(`${path.src.img}/**/*.{jpg,png,svg}`, imgDev).on(
     "change",
     browserSync.reload
   );
 
   watch(`${path.src.fonts}/**/*.ttf`, font).on("change", browserSync.reload);
+
+  watch(`${path.src.js}/**/*.js`, jsDev).on("change", browserSync.reload);
 };
 
-exports.default = scss;
-exports.scss = scss;
-exports.cleanCss = cleanCSS;
-exports.clean = clean;
-exports.html = html;
-exports.watcher = watchers;
-exports.server = server;
-exports.dev = series(clean, parallel(scss, html, img, font), watchers, server);
+const scss = () => {
+  return src(`${path.src.scss}/main.scss`)
+    .pipe(sass().on("error", sass.logError))
+    .pipe(cleanCSS({ level: 2 }))
+    .pipe(
+      autoprefixer({
+        grid: true,
+        overrideBrowserslist: ["last 3 versions"],
+        // cascade: true,
+      })
+    )
+    .pipe(rename({ basename: "styles", suffix: ".min" }))
+    .pipe(dest(`${path.dist.css}`));
+};
+
+const js = () => {
+  return src([`${path.src.js}/main.js`])
+    .pipe(
+      include({
+        includePaths: __dirname + path.src.js.slice(1),
+        // prefix: "@@",
+        // basepath: `${path.src.html}`,
+      })
+    )
+    .on("error", console.log)
+    .pipe(uglify({ toplevel: true }))
+    .pipe(rename({ basename: "scripts", suffix: ".min" }))
+    .pipe(dest(path.dist.js));
+};
+
+const img = () => {
+  return src(`${path.src.img}/**/*.{jpg,png,svg,webp}`)
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.mozjpeg({ quality: 75, progressive: true }),
+        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.svgo({
+          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+        }),
+      ])
+    )
+    .pipe(dest(path.dist.img));
+};
+
+exports.default = scssDev;
+
+exports.dev = series(
+  clean,
+  parallel(scssDev, html, imgDev, font, jsDev),
+  watchers,
+  server
+);
+
+exports.build = series(clean, parallel(html, scss, js, font, img));

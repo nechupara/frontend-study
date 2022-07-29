@@ -29,14 +29,14 @@
 
 .insta-shots__gallery {
   // @include margin0auto($max-width-xl);
-// @include flex-space-between;
-height: 285px;
-overflow: hidden;
-display: flex;
-justify-content: start;
-flex-wrap: wrap;
-gap: 10px;
-a {
-  flex-grow: 1;
-}
+  // @include flex-space-between;
+  height: 285px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  a {
+    flex-grow: 1;
+  }
 }
